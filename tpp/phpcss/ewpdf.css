@@ -1,0 +1,48 @@
+body {
+	background-color: inherit; /* background color */
+	font-family: DejaVuSerif; /* font name */
+	font-size: xx-small; /* font size - DO NOT CHANGE! */
+}
+
+/* table for PDF export */
+.ew-table {
+	border: 0;
+	border-spacing: 0;
+	border-collapse: separate;
+	font-size: xx-small; /* font size - DO NOT CHANGE! */
+	width: 100%;
+	border-top: 0.5px solid;
+	border-left: 0.5px solid;
+	border-color: #D3E4A6; /* border color */
+	margin-left: 0;
+	margin-right: 0;
+}
+.ew-table td, .ew-table th {
+	padding: 3px; /* cell padding */
+	border-top: 0px;
+	border-left: 0px;
+	border-right: 0.5px solid; /* border width, vertical grid line */
+	border-bottom: 0.5px solid; /* border width, horizontal grid line */
+	border-color: #D3E4A6; /* border color */
+}
+.ew-table .ew-table-header td, .ew-table .ew-table-header th {
+	background-image: none; /* remove header bg image */
+	background-color: #9CC525;	/* header bgcolor */
+	color: #FFFFFF; /* header font color */
+	vertical-align: top;
+}
+
+/* row color */
+.ew-table .ew-table-row, .ew-table .ew-table-row td {
+	background-color: #FFFFFF; /* alt row color 1 */
+}
+
+/* alternate row color */
+.ew-table .ew-table-alt-row, .ew-table .ew-table-alt-row td {
+	background-color: #EEF4E0; /* alt row color 2 */
+}
+
+/* main table footer */
+.ew-table .ew-table-footer td {
+	background-color: #FFFACD; /* footer color */
+}

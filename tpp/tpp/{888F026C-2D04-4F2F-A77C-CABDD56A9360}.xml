@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration date="2019/04/26" author="e.World Technology Ltd.">
+  <project id="{888F026C-2D04-4F2F-A77C-CABDD56A9360}" file="D:\Dropbox\PHPMaker\Github\RumahSakit2019\01 TPP\TPP.pmp" name="tpp" product="PHPMaker" version="15.0" datetime="2019/04/26 19:52:13" languagefolder="phplang" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0">
+    <table id="lokkelurahan" name="lokkelurahan" caption="DATA KELURAHAN" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+    <table id="lokpasien" name="lokpasien" caption="REGISTRASI PASIEN" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+    <table id="lokbiayadaftar" name="lokbiayadaftar" caption="BIAYA RAWAT JALAN" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+    <table id="lokdaftar" name="lokdaftar" caption="HISTORI REGISTRASI" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+    <table id="lokpoliklinik" name="lokpoliklinik" caption="LIHAT DATA POLIKLINIK" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+    <table id="vlokpetugas" name="vlokpetugas" caption="PETUGAS TPP" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+    <table id="lokuserlevelpermissions" name="lokuserlevelpermissions" caption="userlevelpermissions" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="0" />
+    <table id="lokuserlevels" name="lokuserlevels" caption="HAK AKSES" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="0" />
+    <table id="kartu_fargo" name="kartu_fargo.php" caption="Kartu Pasien Printer Fargo" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="0" />
+    <table id="ugdbiayadaftar" name="ugdbiayadaftar" caption="BIAYA DAFTAR UGD" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+    <table id="lokasalrujukan" name="lokasalrujukan" caption="DATA ASAL RUJUKAN" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+    <table id="lokjenispasien" name="lokjenispasien" caption="DATA JENIS PASIEN" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+    <table id="ugddaftar" name="ugddaftar" caption="HISTORI REGISTRASI" userlevel="-2,&quot;Anonymous&quot;,0;0,&quot;Default&quot;,0" priv="1" />
+  </project>
+</configuration>

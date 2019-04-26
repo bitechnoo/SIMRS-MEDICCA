@@ -1,0 +1,28 @@
+{
+	"name": "hkvstore/phpmaker",
+	"version": "2019",
+	"type": "project",
+	"homepage": "http://www.hkvstore.com/phpmaker",
+	"license": "Commercial",
+	"authors": [
+		{
+			"name": "e.World Technology Limited",
+			"email": "sales@hkvstore.com"
+		}
+	],
+	"require": {
+		"php": ">=5.5.0",
+		"phpmailer/phpmailer": "~6.0.5",
+		"ezyang/htmlpurifier": "^4.10.0",
+		"mobiledetect/mobiledetectlib": "^2.8",
+		"soundasleep/html2text": "^0.5.0",
+		"slim/slim": "^3.0",
+		"tuupola/slim-jwt-auth": "^2.3",
+		"slim/http-cache": "^0.4.0",
+		"defuse/php-encryption": "~2.2.0",
+		"hkvstore/phpthumb": "~2.1.0",
+		"phpoffice/phpword": "0.14.*",
+		"hkvstore/dompdf": "~0.8.2"
+	},
+	"autoload": {}
+}
