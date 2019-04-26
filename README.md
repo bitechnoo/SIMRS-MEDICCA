@@ -10,17 +10,17 @@ SIMRS-MEDICCA dapat digunakan terintegrasi seluruh modul atau hanya beberapa mod
 Rumah sakit / Puskesmas / Klinik dalam implementasi SIMRS
 
 SIMRS-MEDICCA terdiri dari modul-modul:
-1. Pendaftaran Pasien (modul wajib)
-[Link Online Demo TPP (Tempat Pendaftaran Pasien)](http://www.banuatekno.com/tpp "Online Demo Tempat Pendaftaran Pasien")
-username=tpp1
-password=123456
-
-Modul-modul lainnya yang segera dirilis:
-2. UGD (modul opsional)
-3. Rawat Jalan (modul opsional)
-4. Radiologi (modul opsional)
-5. Laboratorium (modul opsional)
-6. Apotek (modul opsional)
-7. Rawat Inap (modul opsional)
-8. Kasir (modul opsional)
-9. Laporan Rekam Medik (modul opsional)
+###### 1. Pendaftaran Pasien (modul wajib)
+###### [Link Online Demo TPP (Tempat Pendaftaran Pasien)](http://www.banuatekno.com/tpp "Online Demo Tempat Pendaftaran Pasien")
+###### username=tpp1
+###### password=123456
+###### ---------------------------------------------
+###### Modul-modul lainnya yang segera dirilis:
+###### 2. UGD (modul opsional)
+###### 3. Rawat Jalan (modul opsional)
+###### 4. Radiologi (modul opsional)
+###### 5. Laboratorium (modul opsional)
+###### 6. Apotek (modul opsional)
+###### 7. Rawat Inap (modul opsional)
+###### 8. Kasir (modul opsional)
+###### 9. Laporan Rekam Medik (modul opsional)
