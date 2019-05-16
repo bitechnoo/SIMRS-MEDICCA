@@ -9,6 +9,8 @@ Rumah sakit / Puskesmas / Klinik yang ingin menerapkan SIMRS dengan mudah.
 SIMRS-MEDICCA dapat digunakan terintegrasi seluruh modul atau hanya beberapa modul disesuaikan dengan kesiapan 
 Rumah sakit / Puskesmas / Klinik dalam implementasi SIMRS
 
+Email pengembang: heldisyah@gmail.com
+
 SIMRS-MEDICCA terdiri dari modul-modul:
 ###### 1. Pendaftaran Pasien (modul wajib)
 ###### [Link Online Demo TPP (Tempat Pendaftaran Pasien)](http://www.banuatekno.com/tpp "Online Demo Tempat Pendaftaran Pasien")
