@@ -685,9 +685,8 @@ ew.createDateTimePicker("flokdaftaradd", "x_Tgl_Daftar", {"ignoreReadonly":true,
 <?php } ?>
 <div id="tpd_lokdaftaradd" class="ew-custom-template"></div>
 <script id="tpm_lokdaftaradd" type="text/html">
-<div id="ct_lokdaftar_add"><div class="container-fluid">
-	<div class="row">
-		<div class="col-3">
+<div id="ct_lokdaftar_add">	<div class="row">
+		<div class="col-lg-3 col-md-3 col-sm-3">
 			<div><label class="control-label ewLabel"><?php echo $lokdaftar->Tgl_Daftar->caption() ?> <font color="red">*</font></label></div>
 			<div>{{include tmpl="#tpx_lokdaftar_Tgl_Daftar"/}} {{include tmpl="#tpx_lokdaftar_Status"/}}</div>
 			<div>{{include tmpl="#tpx_lokdaftar_Id_Pasien"/}} {{include tmpl="#tpx_lokdaftar_Petugas"/}} {{include tmpl="#tpx_lokdaftar_Waktu"/}}</div>
@@ -704,24 +703,23 @@ ew.createDateTimePicker("flokdaftaradd", "x_Tgl_Daftar", {"ignoreReadonly":true,
 			<div><label class="control-label ewLabel"><?php echo $lokdaftar->Lama_Baru->caption() ?></label></div>
 			<div>{{include tmpl="#tpx_lokdaftar_Lama_Baru"/}}</div>
 		</div>
-		<div class="col-4">
+		<div class="col-lg-4 col-md-4 col-sm-4">
 			<div><label class="control-label ewLabel"><?php echo $lokdaftar->Id_Rujukan->caption() ?> <font color="red">*</font></label></div>
 			<div>{{include tmpl="#tpx_lokdaftar_Id_Rujukan"/}}</div>
 			<div><label class="control-label ewLabel"><?php echo $lokdaftar->Id_JenisPasien->caption() ?> <font color="red">*</font></label></div>
 			<div>{{include tmpl="#tpx_lokdaftar_Id_JenisPasien"/}}</div>
 		</div>
-		<div class="col-2">
+		<div class="col-lg-2 col-md-2 col-sm-2">
 			<div><label class="control-label ewLabel"><?php echo $lokdaftar->Id_Poliklinik->caption() ?> <font color="red">*</font></label></div>
 			<div>{{include tmpl="#tpx_lokdaftar_Id_Poliklinik"/}}</div>
 		</div>
-		<div class="col-3">
+		<div class="col-lg-3 col-md-3 col-sm-3">
 			<div><label class="control-label ewLabel"><?php echo $lokdaftar->Id_BiayaDaftar->caption() ?> <font color="red">*</font></label></div>
 			<div>{{include tmpl="#tpx_lokdaftar_Id_BiayaDaftar"/}}</div> 		
 			<div><label class="control-label ewLabel"><?php echo $lokdaftar->Total_Biaya->caption() ?></label></div>
 			<div>{{include tmpl="#tpx_lokdaftar_Total_Biaya"/}} {{include tmpl="#tpx_lokdaftar_Rawat"/}}</div>		
 		</div>
 	</div>
-</div> 
 </div>
 </script>
 <?php if (!$lokdaftar_add->IsModal) { ?>
