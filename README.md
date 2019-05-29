@@ -16,6 +16,8 @@ SIMRS-MEDICCA terdiri dari modul-modul:
 ###### [Link Online Demo TPP (Tempat Pendaftaran Pasien)](http://www.banuatekno.com/tpp "Online Demo Tempat Pendaftaran Pasien")
 ###### username=tpp1
 ###### password=123456
+
+###### Petunjuk Penggunaanmodul TPP dapat dibaca [disini](https://github.com/bitechnoo/SIMRS-MEDICCA/blob/master/tpp/PETUNJUK%20PENGGUNAAN%20TPP.pdf)
 ###### ---------------------------------------------
 ###### Modul-modul lainnya yang segera dirilis:
 ###### 2. UGD (modul opsional)
