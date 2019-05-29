@@ -17,7 +17,7 @@ SIMRS-MEDICCA terdiri dari modul-modul:
 ###### username=tpp1
 ###### password=123456
 
-###### Petunjuk Penggunaanmodul TPP dapat dibaca [disini](https://github.com/bitechnoo/SIMRS-MEDICCA/blob/master/tpp/PETUNJUK%20PENGGUNAAN%20TPP.pdf)
+###### Petunjuk Penggunaan modul TPP dapat dibaca [disini](https://github.com/bitechnoo/SIMRS-MEDICCA/blob/master/tpp/PETUNJUK%20PENGGUNAAN%20TPP.pdf)
 ###### ---------------------------------------------
 ###### Modul-modul lainnya yang segera dirilis:
 ###### 2. UGD (modul opsional)
