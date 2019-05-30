@@ -73,8 +73,6 @@ CREATE TABLE IF NOT EXISTS `lokdaftar` (
   PRIMARY KEY (`Id_Daftar`),
   KEY `FK_lokdaftar_lokpasien` (`Id_Pasien`),
   KEY `FK_lokdaftar_lokpoliklinik` (`Id_Poliklinik`),
-  KEY `FK_lokdaftar_lokbiayadaftar` (`Id_BiayaDaftar`),
-  CONSTRAINT `FK_lokdaftar_lokbiayadaftar` FOREIGN KEY (`Id_BiayaDaftar`) REFERENCES `lokbiayadaftar` (`Id_Biayadaftar`),
   CONSTRAINT `FK_lokdaftar_lokpasien` FOREIGN KEY (`Id_Pasien`) REFERENCES `lokpasien` (`Id_Pasien`),
   CONSTRAINT `FK_lokdaftar_lokpoliklinik` FOREIGN KEY (`Id_Poliklinik`) REFERENCES `lokpoliklinik` (`Id_Poliklinik`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
