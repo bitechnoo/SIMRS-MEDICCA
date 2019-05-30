@@ -614,6 +614,11 @@ class ugddaftar_add extends ugddaftar
 		$this->Tgl_Daftar->setVisibility();
 		$this->Waktu->setVisibility();
 		$this->Id_Pasien->setVisibility();
+		$this->Nama_Pasien->setVisibility();
+		$this->No_RM->setVisibility();
+		$this->Tgl_Lahir->setVisibility();
+		$this->Jenis_Kelamin->setVisibility();
+		$this->Alamat->setVisibility();
 		$this->Id_Poliklinik->setVisibility();
 		$this->Id_Rujukan->setVisibility();
 		$this->Id_JenisPasien->setVisibility();
@@ -623,11 +628,6 @@ class ugddaftar_add extends ugddaftar
 		$this->Rawat->setVisibility();
 		$this->Status->setVisibility();
 		$this->Petugas->setVisibility();
-		$this->No_RM->setVisibility();
-		$this->Nama_Pasien->setVisibility();
-		$this->Tgl_Lahir->setVisibility();
-		$this->Jenis_Kelamin->setVisibility();
-		$this->Alamat->setVisibility();
 		$this->hideFieldsForAddEdit();
 
 		// Do not use lookup cache
@@ -768,6 +768,16 @@ class ugddaftar_add extends ugddaftar
 		$this->Waktu->CurrentValue = "00:00:00";
 		$this->Id_Pasien->CurrentValue = NULL;
 		$this->Id_Pasien->OldValue = $this->Id_Pasien->CurrentValue;
+		$this->Nama_Pasien->CurrentValue = NULL;
+		$this->Nama_Pasien->OldValue = $this->Nama_Pasien->CurrentValue;
+		$this->No_RM->CurrentValue = NULL;
+		$this->No_RM->OldValue = $this->No_RM->CurrentValue;
+		$this->Tgl_Lahir->CurrentValue = NULL;
+		$this->Tgl_Lahir->OldValue = $this->Tgl_Lahir->CurrentValue;
+		$this->Jenis_Kelamin->CurrentValue = NULL;
+		$this->Jenis_Kelamin->OldValue = $this->Jenis_Kelamin->CurrentValue;
+		$this->Alamat->CurrentValue = NULL;
+		$this->Alamat->OldValue = $this->Alamat->CurrentValue;
 		$this->Id_Poliklinik->CurrentValue = "{290320191250308A243FA9DF67A28BD1C5722022B148EE}";
 		$this->Id_Rujukan->CurrentValue = "{290320191250308A243FA9DF67A28BD1C5722022B148EE}";
 		$this->Id_JenisPasien->CurrentValue = "{290320191250308A243FA9DF67A28BD1C5722022B148EE}";
@@ -779,16 +789,6 @@ class ugddaftar_add extends ugddaftar
 		$this->Rawat->OldValue = $this->Rawat->CurrentValue;
 		$this->Status->CurrentValue = "MASIH";
 		$this->Petugas->CurrentValue = CurrentUserInfo("Nama_Petugas");
-		$this->No_RM->CurrentValue = NULL;
-		$this->No_RM->OldValue = $this->No_RM->CurrentValue;
-		$this->Nama_Pasien->CurrentValue = NULL;
-		$this->Nama_Pasien->OldValue = $this->Nama_Pasien->CurrentValue;
-		$this->Tgl_Lahir->CurrentValue = NULL;
-		$this->Tgl_Lahir->OldValue = $this->Tgl_Lahir->CurrentValue;
-		$this->Jenis_Kelamin->CurrentValue = NULL;
-		$this->Jenis_Kelamin->OldValue = $this->Jenis_Kelamin->CurrentValue;
-		$this->Alamat->CurrentValue = NULL;
-		$this->Alamat->OldValue = $this->Alamat->CurrentValue;
 	}
 
 	// Load form values
@@ -834,6 +834,52 @@ class ugddaftar_add extends ugddaftar
 				$this->Id_Pasien->Visible = FALSE; // Disable update for API request
 			else
 				$this->Id_Pasien->setFormValue($val);
+		}
+
+		// Check field name 'Nama_Pasien' first before field var 'x_Nama_Pasien'
+		$val = $CurrentForm->hasValue("Nama_Pasien") ? $CurrentForm->getValue("Nama_Pasien") : $CurrentForm->getValue("x_Nama_Pasien");
+		if (!$this->Nama_Pasien->IsDetailKey) {
+			if (IsApi() && $val == NULL)
+				$this->Nama_Pasien->Visible = FALSE; // Disable update for API request
+			else
+				$this->Nama_Pasien->setFormValue($val);
+		}
+
+		// Check field name 'No_RM' first before field var 'x_No_RM'
+		$val = $CurrentForm->hasValue("No_RM") ? $CurrentForm->getValue("No_RM") : $CurrentForm->getValue("x_No_RM");
+		if (!$this->No_RM->IsDetailKey) {
+			if (IsApi() && $val == NULL)
+				$this->No_RM->Visible = FALSE; // Disable update for API request
+			else
+				$this->No_RM->setFormValue($val);
+		}
+
+		// Check field name 'Tgl_Lahir' first before field var 'x_Tgl_Lahir'
+		$val = $CurrentForm->hasValue("Tgl_Lahir") ? $CurrentForm->getValue("Tgl_Lahir") : $CurrentForm->getValue("x_Tgl_Lahir");
+		if (!$this->Tgl_Lahir->IsDetailKey) {
+			if (IsApi() && $val == NULL)
+				$this->Tgl_Lahir->Visible = FALSE; // Disable update for API request
+			else
+				$this->Tgl_Lahir->setFormValue($val);
+			$this->Tgl_Lahir->CurrentValue = UnFormatDateTime($this->Tgl_Lahir->CurrentValue, 7);
+		}
+
+		// Check field name 'Jenis_Kelamin' first before field var 'x_Jenis_Kelamin'
+		$val = $CurrentForm->hasValue("Jenis_Kelamin") ? $CurrentForm->getValue("Jenis_Kelamin") : $CurrentForm->getValue("x_Jenis_Kelamin");
+		if (!$this->Jenis_Kelamin->IsDetailKey) {
+			if (IsApi() && $val == NULL)
+				$this->Jenis_Kelamin->Visible = FALSE; // Disable update for API request
+			else
+				$this->Jenis_Kelamin->setFormValue($val);
+		}
+
+		// Check field name 'Alamat' first before field var 'x_Alamat'
+		$val = $CurrentForm->hasValue("Alamat") ? $CurrentForm->getValue("Alamat") : $CurrentForm->getValue("x_Alamat");
+		if (!$this->Alamat->IsDetailKey) {
+			if (IsApi() && $val == NULL)
+				$this->Alamat->Visible = FALSE; // Disable update for API request
+			else
+				$this->Alamat->setFormValue($val);
 		}
 
 		// Check field name 'Id_Poliklinik' first before field var 'x_Id_Poliklinik'
@@ -916,52 +962,6 @@ class ugddaftar_add extends ugddaftar
 			else
 				$this->Petugas->setFormValue($val);
 		}
-
-		// Check field name 'No_RM' first before field var 'x_No_RM'
-		$val = $CurrentForm->hasValue("No_RM") ? $CurrentForm->getValue("No_RM") : $CurrentForm->getValue("x_No_RM");
-		if (!$this->No_RM->IsDetailKey) {
-			if (IsApi() && $val == NULL)
-				$this->No_RM->Visible = FALSE; // Disable update for API request
-			else
-				$this->No_RM->setFormValue($val);
-		}
-
-		// Check field name 'Nama_Pasien' first before field var 'x_Nama_Pasien'
-		$val = $CurrentForm->hasValue("Nama_Pasien") ? $CurrentForm->getValue("Nama_Pasien") : $CurrentForm->getValue("x_Nama_Pasien");
-		if (!$this->Nama_Pasien->IsDetailKey) {
-			if (IsApi() && $val == NULL)
-				$this->Nama_Pasien->Visible = FALSE; // Disable update for API request
-			else
-				$this->Nama_Pasien->setFormValue($val);
-		}
-
-		// Check field name 'Tgl_Lahir' first before field var 'x_Tgl_Lahir'
-		$val = $CurrentForm->hasValue("Tgl_Lahir") ? $CurrentForm->getValue("Tgl_Lahir") : $CurrentForm->getValue("x_Tgl_Lahir");
-		if (!$this->Tgl_Lahir->IsDetailKey) {
-			if (IsApi() && $val == NULL)
-				$this->Tgl_Lahir->Visible = FALSE; // Disable update for API request
-			else
-				$this->Tgl_Lahir->setFormValue($val);
-			$this->Tgl_Lahir->CurrentValue = UnFormatDateTime($this->Tgl_Lahir->CurrentValue, 7);
-		}
-
-		// Check field name 'Jenis_Kelamin' first before field var 'x_Jenis_Kelamin'
-		$val = $CurrentForm->hasValue("Jenis_Kelamin") ? $CurrentForm->getValue("Jenis_Kelamin") : $CurrentForm->getValue("x_Jenis_Kelamin");
-		if (!$this->Jenis_Kelamin->IsDetailKey) {
-			if (IsApi() && $val == NULL)
-				$this->Jenis_Kelamin->Visible = FALSE; // Disable update for API request
-			else
-				$this->Jenis_Kelamin->setFormValue($val);
-		}
-
-		// Check field name 'Alamat' first before field var 'x_Alamat'
-		$val = $CurrentForm->hasValue("Alamat") ? $CurrentForm->getValue("Alamat") : $CurrentForm->getValue("x_Alamat");
-		if (!$this->Alamat->IsDetailKey) {
-			if (IsApi() && $val == NULL)
-				$this->Alamat->Visible = FALSE; // Disable update for API request
-			else
-				$this->Alamat->setFormValue($val);
-		}
 	}
 
 	// Restore form values
@@ -974,6 +974,12 @@ class ugddaftar_add extends ugddaftar
 		$this->Waktu->CurrentValue = $this->Waktu->FormValue;
 		$this->Waktu->CurrentValue = UnFormatDateTime($this->Waktu->CurrentValue, 4);
 		$this->Id_Pasien->CurrentValue = $this->Id_Pasien->FormValue;
+		$this->Nama_Pasien->CurrentValue = $this->Nama_Pasien->FormValue;
+		$this->No_RM->CurrentValue = $this->No_RM->FormValue;
+		$this->Tgl_Lahir->CurrentValue = $this->Tgl_Lahir->FormValue;
+		$this->Tgl_Lahir->CurrentValue = UnFormatDateTime($this->Tgl_Lahir->CurrentValue, 7);
+		$this->Jenis_Kelamin->CurrentValue = $this->Jenis_Kelamin->FormValue;
+		$this->Alamat->CurrentValue = $this->Alamat->FormValue;
 		$this->Id_Poliklinik->CurrentValue = $this->Id_Poliklinik->FormValue;
 		$this->Id_Rujukan->CurrentValue = $this->Id_Rujukan->FormValue;
 		$this->Id_JenisPasien->CurrentValue = $this->Id_JenisPasien->FormValue;
@@ -983,12 +989,6 @@ class ugddaftar_add extends ugddaftar
 		$this->Rawat->CurrentValue = $this->Rawat->FormValue;
 		$this->Status->CurrentValue = $this->Status->FormValue;
 		$this->Petugas->CurrentValue = $this->Petugas->FormValue;
-		$this->No_RM->CurrentValue = $this->No_RM->FormValue;
-		$this->Nama_Pasien->CurrentValue = $this->Nama_Pasien->FormValue;
-		$this->Tgl_Lahir->CurrentValue = $this->Tgl_Lahir->FormValue;
-		$this->Tgl_Lahir->CurrentValue = UnFormatDateTime($this->Tgl_Lahir->CurrentValue, 7);
-		$this->Jenis_Kelamin->CurrentValue = $this->Jenis_Kelamin->FormValue;
-		$this->Alamat->CurrentValue = $this->Alamat->FormValue;
 	}
 
 	// Load row based on key values
@@ -1030,6 +1030,11 @@ class ugddaftar_add extends ugddaftar
 		$this->Tgl_Daftar->setDbValue($row['Tgl_Daftar']);
 		$this->Waktu->setDbValue($row['Waktu']);
 		$this->Id_Pasien->setDbValue($row['Id_Pasien']);
+		$this->Nama_Pasien->setDbValue($row['Nama_Pasien']);
+		$this->No_RM->setDbValue($row['No_RM']);
+		$this->Tgl_Lahir->setDbValue($row['Tgl_Lahir']);
+		$this->Jenis_Kelamin->setDbValue($row['Jenis_Kelamin']);
+		$this->Alamat->setDbValue($row['Alamat']);
 		$this->Id_Poliklinik->setDbValue($row['Id_Poliklinik']);
 		$this->Id_Rujukan->setDbValue($row['Id_Rujukan']);
 		$this->Id_JenisPasien->setDbValue($row['Id_JenisPasien']);
@@ -1039,11 +1044,6 @@ class ugddaftar_add extends ugddaftar
 		$this->Rawat->setDbValue($row['Rawat']);
 		$this->Status->setDbValue($row['Status']);
 		$this->Petugas->setDbValue($row['Petugas']);
-		$this->No_RM->setDbValue($row['No_RM']);
-		$this->Nama_Pasien->setDbValue($row['Nama_Pasien']);
-		$this->Tgl_Lahir->setDbValue($row['Tgl_Lahir']);
-		$this->Jenis_Kelamin->setDbValue($row['Jenis_Kelamin']);
-		$this->Alamat->setDbValue($row['Alamat']);
 	}
 
 	// Return a row with default values
@@ -1055,6 +1055,11 @@ class ugddaftar_add extends ugddaftar
 		$row['Tgl_Daftar'] = $this->Tgl_Daftar->CurrentValue;
 		$row['Waktu'] = $this->Waktu->CurrentValue;
 		$row['Id_Pasien'] = $this->Id_Pasien->CurrentValue;
+		$row['Nama_Pasien'] = $this->Nama_Pasien->CurrentValue;
+		$row['No_RM'] = $this->No_RM->CurrentValue;
+		$row['Tgl_Lahir'] = $this->Tgl_Lahir->CurrentValue;
+		$row['Jenis_Kelamin'] = $this->Jenis_Kelamin->CurrentValue;
+		$row['Alamat'] = $this->Alamat->CurrentValue;
 		$row['Id_Poliklinik'] = $this->Id_Poliklinik->CurrentValue;
 		$row['Id_Rujukan'] = $this->Id_Rujukan->CurrentValue;
 		$row['Id_JenisPasien'] = $this->Id_JenisPasien->CurrentValue;
@@ -1064,11 +1069,6 @@ class ugddaftar_add extends ugddaftar
 		$row['Rawat'] = $this->Rawat->CurrentValue;
 		$row['Status'] = $this->Status->CurrentValue;
 		$row['Petugas'] = $this->Petugas->CurrentValue;
-		$row['No_RM'] = $this->No_RM->CurrentValue;
-		$row['Nama_Pasien'] = $this->Nama_Pasien->CurrentValue;
-		$row['Tgl_Lahir'] = $this->Tgl_Lahir->CurrentValue;
-		$row['Jenis_Kelamin'] = $this->Jenis_Kelamin->CurrentValue;
-		$row['Alamat'] = $this->Alamat->CurrentValue;
 		return $row;
 	}
 
@@ -1114,6 +1114,11 @@ class ugddaftar_add extends ugddaftar
 		// Tgl_Daftar
 		// Waktu
 		// Id_Pasien
+		// Nama_Pasien
+		// No_RM
+		// Tgl_Lahir
+		// Jenis_Kelamin
+		// Alamat
 		// Id_Poliklinik
 		// Id_Rujukan
 		// Id_JenisPasien
@@ -1123,11 +1128,6 @@ class ugddaftar_add extends ugddaftar
 		// Rawat
 		// Status
 		// Petugas
-		// No_RM
-		// Nama_Pasien
-		// Tgl_Lahir
-		// Jenis_Kelamin
-		// Alamat
 
 		if ($this->RowType == ROWTYPE_VIEW) { // View row
 
@@ -1148,6 +1148,27 @@ class ugddaftar_add extends ugddaftar
 			// Id_Pasien
 			$this->Id_Pasien->ViewValue = $this->Id_Pasien->CurrentValue;
 			$this->Id_Pasien->ViewCustomAttributes = "";
+
+			// Nama_Pasien
+			$this->Nama_Pasien->ViewValue = $this->Nama_Pasien->CurrentValue;
+			$this->Nama_Pasien->ViewCustomAttributes = "";
+
+			// No_RM
+			$this->No_RM->ViewValue = $this->No_RM->CurrentValue;
+			$this->No_RM->ViewCustomAttributes = "";
+
+			// Tgl_Lahir
+			$this->Tgl_Lahir->ViewValue = $this->Tgl_Lahir->CurrentValue;
+			$this->Tgl_Lahir->ViewValue = FormatDateTime($this->Tgl_Lahir->ViewValue, 7);
+			$this->Tgl_Lahir->ViewCustomAttributes = "";
+
+			// Jenis_Kelamin
+			$this->Jenis_Kelamin->ViewValue = $this->Jenis_Kelamin->CurrentValue;
+			$this->Jenis_Kelamin->ViewCustomAttributes = "";
+
+			// Alamat
+			$this->Alamat->ViewValue = $this->Alamat->CurrentValue;
+			$this->Alamat->ViewCustomAttributes = "";
 
 			// Id_Poliklinik
 			$this->Id_Poliklinik->ViewValue = $this->Id_Poliklinik->CurrentValue;
@@ -1243,27 +1264,6 @@ class ugddaftar_add extends ugddaftar
 			$this->Petugas->ViewValue = $this->Petugas->CurrentValue;
 			$this->Petugas->ViewCustomAttributes = "";
 
-			// No_RM
-			$this->No_RM->ViewValue = $this->No_RM->CurrentValue;
-			$this->No_RM->ViewCustomAttributes = "";
-
-			// Nama_Pasien
-			$this->Nama_Pasien->ViewValue = $this->Nama_Pasien->CurrentValue;
-			$this->Nama_Pasien->ViewCustomAttributes = "";
-
-			// Tgl_Lahir
-			$this->Tgl_Lahir->ViewValue = $this->Tgl_Lahir->CurrentValue;
-			$this->Tgl_Lahir->ViewValue = FormatDateTime($this->Tgl_Lahir->ViewValue, 7);
-			$this->Tgl_Lahir->ViewCustomAttributes = "";
-
-			// Jenis_Kelamin
-			$this->Jenis_Kelamin->ViewValue = $this->Jenis_Kelamin->CurrentValue;
-			$this->Jenis_Kelamin->ViewCustomAttributes = "";
-
-			// Alamat
-			$this->Alamat->ViewValue = $this->Alamat->CurrentValue;
-			$this->Alamat->ViewCustomAttributes = "";
-
 			// Id_Daftar
 			$this->Id_Daftar->LinkCustomAttributes = "";
 			$this->Id_Daftar->HrefValue = "";
@@ -1283,6 +1283,31 @@ class ugddaftar_add extends ugddaftar
 			$this->Id_Pasien->LinkCustomAttributes = "";
 			$this->Id_Pasien->HrefValue = "";
 			$this->Id_Pasien->TooltipValue = "";
+
+			// Nama_Pasien
+			$this->Nama_Pasien->LinkCustomAttributes = "";
+			$this->Nama_Pasien->HrefValue = "";
+			$this->Nama_Pasien->TooltipValue = "";
+
+			// No_RM
+			$this->No_RM->LinkCustomAttributes = "";
+			$this->No_RM->HrefValue = "";
+			$this->No_RM->TooltipValue = "";
+
+			// Tgl_Lahir
+			$this->Tgl_Lahir->LinkCustomAttributes = "";
+			$this->Tgl_Lahir->HrefValue = "";
+			$this->Tgl_Lahir->TooltipValue = "";
+
+			// Jenis_Kelamin
+			$this->Jenis_Kelamin->LinkCustomAttributes = "";
+			$this->Jenis_Kelamin->HrefValue = "";
+			$this->Jenis_Kelamin->TooltipValue = "";
+
+			// Alamat
+			$this->Alamat->LinkCustomAttributes = "";
+			$this->Alamat->HrefValue = "";
+			$this->Alamat->TooltipValue = "";
 
 			// Id_Poliklinik
 			$this->Id_Poliklinik->LinkCustomAttributes = "";
@@ -1328,41 +1353,11 @@ class ugddaftar_add extends ugddaftar
 			$this->Petugas->LinkCustomAttributes = "";
 			$this->Petugas->HrefValue = "";
 			$this->Petugas->TooltipValue = "";
-
-			// No_RM
-			$this->No_RM->LinkCustomAttributes = "";
-			$this->No_RM->HrefValue = "";
-			$this->No_RM->TooltipValue = "";
-
-			// Nama_Pasien
-			$this->Nama_Pasien->LinkCustomAttributes = "";
-			$this->Nama_Pasien->HrefValue = "";
-			$this->Nama_Pasien->TooltipValue = "";
-
-			// Tgl_Lahir
-			$this->Tgl_Lahir->LinkCustomAttributes = "";
-			$this->Tgl_Lahir->HrefValue = "";
-			$this->Tgl_Lahir->TooltipValue = "";
-
-			// Jenis_Kelamin
-			$this->Jenis_Kelamin->LinkCustomAttributes = "";
-			$this->Jenis_Kelamin->HrefValue = "";
-			$this->Jenis_Kelamin->TooltipValue = "";
-
-			// Alamat
-			$this->Alamat->LinkCustomAttributes = "";
-			$this->Alamat->HrefValue = "";
-			$this->Alamat->TooltipValue = "";
 		} elseif ($this->RowType == ROWTYPE_ADD) { // Add row
 
 			// Id_Daftar
-			$this->Id_Daftar->EditAttrs["class"] = "form-control";
-			$this->Id_Daftar->EditCustomAttributes = "";
-			if (REMOVE_XSS)
-				$this->Id_Daftar->CurrentValue = HtmlDecode($this->Id_Daftar->CurrentValue);
-			$this->Id_Daftar->EditValue = HtmlEncode($this->Id_Daftar->CurrentValue);
-
 			// Tgl_Daftar
+
 			$this->Tgl_Daftar->EditAttrs["class"] = "form-control";
 			$this->Tgl_Daftar->EditCustomAttributes = "";
 			$this->Tgl_Daftar->EditValue = HtmlEncode(FormatDateTime($this->Tgl_Daftar->CurrentValue, 7));
@@ -1378,6 +1373,37 @@ class ugddaftar_add extends ugddaftar
 			if (REMOVE_XSS)
 				$this->Id_Pasien->CurrentValue = HtmlDecode($this->Id_Pasien->CurrentValue);
 			$this->Id_Pasien->EditValue = HtmlEncode($this->Id_Pasien->CurrentValue);
+
+			// Nama_Pasien
+			$this->Nama_Pasien->EditAttrs["class"] = "form-control";
+			$this->Nama_Pasien->EditCustomAttributes = "";
+			if (REMOVE_XSS)
+				$this->Nama_Pasien->CurrentValue = HtmlDecode($this->Nama_Pasien->CurrentValue);
+			$this->Nama_Pasien->EditValue = HtmlEncode($this->Nama_Pasien->CurrentValue);
+
+			// No_RM
+			$this->No_RM->EditAttrs["class"] = "form-control";
+			$this->No_RM->EditCustomAttributes = "";
+			if (REMOVE_XSS)
+				$this->No_RM->CurrentValue = HtmlDecode($this->No_RM->CurrentValue);
+			$this->No_RM->EditValue = HtmlEncode($this->No_RM->CurrentValue);
+
+			// Tgl_Lahir
+			$this->Tgl_Lahir->EditAttrs["class"] = "form-control";
+			$this->Tgl_Lahir->EditCustomAttributes = "";
+			$this->Tgl_Lahir->EditValue = HtmlEncode(FormatDateTime($this->Tgl_Lahir->CurrentValue, 7));
+
+			// Jenis_Kelamin
+			$this->Jenis_Kelamin->EditAttrs["class"] = "form-control";
+			$this->Jenis_Kelamin->EditCustomAttributes = "";
+			if (REMOVE_XSS)
+				$this->Jenis_Kelamin->CurrentValue = HtmlDecode($this->Jenis_Kelamin->CurrentValue);
+			$this->Jenis_Kelamin->EditValue = HtmlEncode($this->Jenis_Kelamin->CurrentValue);
+
+			// Alamat
+			$this->Alamat->EditAttrs["class"] = "form-control";
+			$this->Alamat->EditCustomAttributes = "";
+			$this->Alamat->EditValue = HtmlEncode($this->Alamat->CurrentValue);
 
 			// Id_Poliklinik
 			$this->Id_Poliklinik->EditAttrs["class"] = "form-control";
@@ -1478,37 +1504,6 @@ class ugddaftar_add extends ugddaftar
 			$this->Petugas->EditCustomAttributes = "";
 			$this->Petugas->CurrentValue = CurrentUserInfo("Nama_Petugas");
 
-			// No_RM
-			$this->No_RM->EditAttrs["class"] = "form-control";
-			$this->No_RM->EditCustomAttributes = "";
-			if (REMOVE_XSS)
-				$this->No_RM->CurrentValue = HtmlDecode($this->No_RM->CurrentValue);
-			$this->No_RM->EditValue = HtmlEncode($this->No_RM->CurrentValue);
-
-			// Nama_Pasien
-			$this->Nama_Pasien->EditAttrs["class"] = "form-control";
-			$this->Nama_Pasien->EditCustomAttributes = "";
-			if (REMOVE_XSS)
-				$this->Nama_Pasien->CurrentValue = HtmlDecode($this->Nama_Pasien->CurrentValue);
-			$this->Nama_Pasien->EditValue = HtmlEncode($this->Nama_Pasien->CurrentValue);
-
-			// Tgl_Lahir
-			$this->Tgl_Lahir->EditAttrs["class"] = "form-control";
-			$this->Tgl_Lahir->EditCustomAttributes = "";
-			$this->Tgl_Lahir->EditValue = HtmlEncode(FormatDateTime($this->Tgl_Lahir->CurrentValue, 7));
-
-			// Jenis_Kelamin
-			$this->Jenis_Kelamin->EditAttrs["class"] = "form-control";
-			$this->Jenis_Kelamin->EditCustomAttributes = "";
-			if (REMOVE_XSS)
-				$this->Jenis_Kelamin->CurrentValue = HtmlDecode($this->Jenis_Kelamin->CurrentValue);
-			$this->Jenis_Kelamin->EditValue = HtmlEncode($this->Jenis_Kelamin->CurrentValue);
-
-			// Alamat
-			$this->Alamat->EditAttrs["class"] = "form-control";
-			$this->Alamat->EditCustomAttributes = "";
-			$this->Alamat->EditValue = HtmlEncode($this->Alamat->CurrentValue);
-
 			// Add refer script
 			// Id_Daftar
 
@@ -1526,6 +1521,26 @@ class ugddaftar_add extends ugddaftar
 			// Id_Pasien
 			$this->Id_Pasien->LinkCustomAttributes = "";
 			$this->Id_Pasien->HrefValue = "";
+
+			// Nama_Pasien
+			$this->Nama_Pasien->LinkCustomAttributes = "";
+			$this->Nama_Pasien->HrefValue = "";
+
+			// No_RM
+			$this->No_RM->LinkCustomAttributes = "";
+			$this->No_RM->HrefValue = "";
+
+			// Tgl_Lahir
+			$this->Tgl_Lahir->LinkCustomAttributes = "";
+			$this->Tgl_Lahir->HrefValue = "";
+
+			// Jenis_Kelamin
+			$this->Jenis_Kelamin->LinkCustomAttributes = "";
+			$this->Jenis_Kelamin->HrefValue = "";
+
+			// Alamat
+			$this->Alamat->LinkCustomAttributes = "";
+			$this->Alamat->HrefValue = "";
 
 			// Id_Poliklinik
 			$this->Id_Poliklinik->LinkCustomAttributes = "";
@@ -1562,26 +1577,6 @@ class ugddaftar_add extends ugddaftar
 			// Petugas
 			$this->Petugas->LinkCustomAttributes = "";
 			$this->Petugas->HrefValue = "";
-
-			// No_RM
-			$this->No_RM->LinkCustomAttributes = "";
-			$this->No_RM->HrefValue = "";
-
-			// Nama_Pasien
-			$this->Nama_Pasien->LinkCustomAttributes = "";
-			$this->Nama_Pasien->HrefValue = "";
-
-			// Tgl_Lahir
-			$this->Tgl_Lahir->LinkCustomAttributes = "";
-			$this->Tgl_Lahir->HrefValue = "";
-
-			// Jenis_Kelamin
-			$this->Jenis_Kelamin->LinkCustomAttributes = "";
-			$this->Jenis_Kelamin->HrefValue = "";
-
-			// Alamat
-			$this->Alamat->LinkCustomAttributes = "";
-			$this->Alamat->HrefValue = "";
 		}
 		if ($this->RowType == ROWTYPE_ADD || $this->RowType == ROWTYPE_EDIT || $this->RowType == ROWTYPE_SEARCH) // Add/Edit/Search row
 			$this->setupFieldTitles();
@@ -1632,6 +1627,31 @@ class ugddaftar_add extends ugddaftar
 				AddMessage($FormError, str_replace("%s", $this->Id_Pasien->caption(), $this->Id_Pasien->RequiredErrorMessage));
 			}
 		}
+		if ($this->Nama_Pasien->Required) {
+			if (!$this->Nama_Pasien->IsDetailKey && $this->Nama_Pasien->FormValue != NULL && $this->Nama_Pasien->FormValue == "") {
+				AddMessage($FormError, str_replace("%s", $this->Nama_Pasien->caption(), $this->Nama_Pasien->RequiredErrorMessage));
+			}
+		}
+		if ($this->No_RM->Required) {
+			if (!$this->No_RM->IsDetailKey && $this->No_RM->FormValue != NULL && $this->No_RM->FormValue == "") {
+				AddMessage($FormError, str_replace("%s", $this->No_RM->caption(), $this->No_RM->RequiredErrorMessage));
+			}
+		}
+		if ($this->Tgl_Lahir->Required) {
+			if (!$this->Tgl_Lahir->IsDetailKey && $this->Tgl_Lahir->FormValue != NULL && $this->Tgl_Lahir->FormValue == "") {
+				AddMessage($FormError, str_replace("%s", $this->Tgl_Lahir->caption(), $this->Tgl_Lahir->RequiredErrorMessage));
+			}
+		}
+		if ($this->Jenis_Kelamin->Required) {
+			if (!$this->Jenis_Kelamin->IsDetailKey && $this->Jenis_Kelamin->FormValue != NULL && $this->Jenis_Kelamin->FormValue == "") {
+				AddMessage($FormError, str_replace("%s", $this->Jenis_Kelamin->caption(), $this->Jenis_Kelamin->RequiredErrorMessage));
+			}
+		}
+		if ($this->Alamat->Required) {
+			if (!$this->Alamat->IsDetailKey && $this->Alamat->FormValue != NULL && $this->Alamat->FormValue == "") {
+				AddMessage($FormError, str_replace("%s", $this->Alamat->caption(), $this->Alamat->RequiredErrorMessage));
+			}
+		}
 		if ($this->Id_Poliklinik->Required) {
 			if (!$this->Id_Poliklinik->IsDetailKey && $this->Id_Poliklinik->FormValue != NULL && $this->Id_Poliklinik->FormValue == "") {
 				AddMessage($FormError, str_replace("%s", $this->Id_Poliklinik->caption(), $this->Id_Poliklinik->RequiredErrorMessage));
@@ -1680,31 +1700,6 @@ class ugddaftar_add extends ugddaftar
 				AddMessage($FormError, str_replace("%s", $this->Petugas->caption(), $this->Petugas->RequiredErrorMessage));
 			}
 		}
-		if ($this->No_RM->Required) {
-			if (!$this->No_RM->IsDetailKey && $this->No_RM->FormValue != NULL && $this->No_RM->FormValue == "") {
-				AddMessage($FormError, str_replace("%s", $this->No_RM->caption(), $this->No_RM->RequiredErrorMessage));
-			}
-		}
-		if ($this->Nama_Pasien->Required) {
-			if (!$this->Nama_Pasien->IsDetailKey && $this->Nama_Pasien->FormValue != NULL && $this->Nama_Pasien->FormValue == "") {
-				AddMessage($FormError, str_replace("%s", $this->Nama_Pasien->caption(), $this->Nama_Pasien->RequiredErrorMessage));
-			}
-		}
-		if ($this->Tgl_Lahir->Required) {
-			if (!$this->Tgl_Lahir->IsDetailKey && $this->Tgl_Lahir->FormValue != NULL && $this->Tgl_Lahir->FormValue == "") {
-				AddMessage($FormError, str_replace("%s", $this->Tgl_Lahir->caption(), $this->Tgl_Lahir->RequiredErrorMessage));
-			}
-		}
-		if ($this->Jenis_Kelamin->Required) {
-			if (!$this->Jenis_Kelamin->IsDetailKey && $this->Jenis_Kelamin->FormValue != NULL && $this->Jenis_Kelamin->FormValue == "") {
-				AddMessage($FormError, str_replace("%s", $this->Jenis_Kelamin->caption(), $this->Jenis_Kelamin->RequiredErrorMessage));
-			}
-		}
-		if ($this->Alamat->Required) {
-			if (!$this->Alamat->IsDetailKey && $this->Alamat->FormValue != NULL && $this->Alamat->FormValue == "") {
-				AddMessage($FormError, str_replace("%s", $this->Alamat->caption(), $this->Alamat->RequiredErrorMessage));
-			}
-		}
 
 		// Return validate result
 		$validateForm = ($FormError == "");
@@ -1731,7 +1726,8 @@ class ugddaftar_add extends ugddaftar
 		$rsnew = [];
 
 		// Id_Daftar
-		$this->Id_Daftar->setDbValueDef($rsnew, $this->Id_Daftar->CurrentValue, "", FALSE);
+		$this->Id_Daftar->setDbValueDef($rsnew, getGUID(), "");
+		$rsnew['Id_Daftar'] = &$this->Id_Daftar->DbValue;
 
 		// Tgl_Daftar
 		$this->Tgl_Daftar->setDbValueDef($rsnew, UnFormatDateTime($this->Tgl_Daftar->CurrentValue, 7), CurrentDate(), strval($this->Tgl_Daftar->CurrentValue) == "");
@@ -1741,6 +1737,21 @@ class ugddaftar_add extends ugddaftar
 
 		// Id_Pasien
 		$this->Id_Pasien->setDbValueDef($rsnew, $this->Id_Pasien->CurrentValue, "", FALSE);
+
+		// Nama_Pasien
+		$this->Nama_Pasien->setDbValueDef($rsnew, $this->Nama_Pasien->CurrentValue, NULL, FALSE);
+
+		// No_RM
+		$this->No_RM->setDbValueDef($rsnew, $this->No_RM->CurrentValue, NULL, FALSE);
+
+		// Tgl_Lahir
+		$this->Tgl_Lahir->setDbValueDef($rsnew, UnFormatDateTime($this->Tgl_Lahir->CurrentValue, 7), NULL, FALSE);
+
+		// Jenis_Kelamin
+		$this->Jenis_Kelamin->setDbValueDef($rsnew, $this->Jenis_Kelamin->CurrentValue, NULL, FALSE);
+
+		// Alamat
+		$this->Alamat->setDbValueDef($rsnew, $this->Alamat->CurrentValue, NULL, FALSE);
 
 		// Id_Poliklinik
 		$this->Id_Poliklinik->setDbValueDef($rsnew, $this->Id_Poliklinik->CurrentValue, "", FALSE);
@@ -1768,21 +1779,6 @@ class ugddaftar_add extends ugddaftar
 
 		// Petugas
 		$this->Petugas->setDbValueDef($rsnew, $this->Petugas->CurrentValue, "", FALSE);
-
-		// No_RM
-		$this->No_RM->setDbValueDef($rsnew, $this->No_RM->CurrentValue, NULL, FALSE);
-
-		// Nama_Pasien
-		$this->Nama_Pasien->setDbValueDef($rsnew, $this->Nama_Pasien->CurrentValue, NULL, FALSE);
-
-		// Tgl_Lahir
-		$this->Tgl_Lahir->setDbValueDef($rsnew, UnFormatDateTime($this->Tgl_Lahir->CurrentValue, 7), NULL, FALSE);
-
-		// Jenis_Kelamin
-		$this->Jenis_Kelamin->setDbValueDef($rsnew, $this->Jenis_Kelamin->CurrentValue, NULL, FALSE);
-
-		// Alamat
-		$this->Alamat->setDbValueDef($rsnew, $this->Alamat->CurrentValue, NULL, FALSE);
 
 		// Call Row Inserting event
 		$rs = ($rsold) ? $rsold->fields : NULL;

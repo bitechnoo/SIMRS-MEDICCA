@@ -29,6 +29,11 @@ class ugddaftar extends DbTable
 	public $Tgl_Daftar;
 	public $Waktu;
 	public $Id_Pasien;
+	public $Nama_Pasien;
+	public $No_RM;
+	public $Tgl_Lahir;
+	public $Jenis_Kelamin;
+	public $Alamat;
 	public $Id_Poliklinik;
 	public $Id_Rujukan;
 	public $Id_JenisPasien;
@@ -38,11 +43,6 @@ class ugddaftar extends DbTable
 	public $Rawat;
 	public $Status;
 	public $Petugas;
-	public $No_RM;
-	public $Nama_Pasien;
-	public $Tgl_Lahir;
-	public $Jenis_Kelamin;
-	public $Alamat;
 
 	// Constructor
 	public function __construct()
@@ -81,7 +81,6 @@ class ugddaftar extends DbTable
 		$this->Id_Daftar = new DbField('ugddaftar', 'ugddaftar', 'x_Id_Daftar', 'Id_Daftar', '`Id_Daftar`', '`Id_Daftar`', 200, -1, FALSE, '`Id_Daftar`', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
 		$this->Id_Daftar->IsPrimaryKey = TRUE; // Primary key field
 		$this->Id_Daftar->Nullable = FALSE; // NOT NULL field
-		$this->Id_Daftar->Required = TRUE; // Required field
 		$this->Id_Daftar->Sortable = TRUE; // Allow sort
 		$this->fields['Id_Daftar'] = &$this->Id_Daftar;
 
@@ -107,6 +106,36 @@ class ugddaftar extends DbTable
 		$this->Id_Pasien->Required = TRUE; // Required field
 		$this->Id_Pasien->Sortable = TRUE; // Allow sort
 		$this->fields['Id_Pasien'] = &$this->Id_Pasien;
+
+		// Nama_Pasien
+		$this->Nama_Pasien = new DbField('ugddaftar', 'ugddaftar', 'x_Nama_Pasien', 'Nama_Pasien', '(SELECT lokpasien.nama_pasien FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', '(SELECT lokpasien.nama_pasien FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 200, -1, FALSE, '(SELECT lokpasien.nama_pasien FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
+		$this->Nama_Pasien->IsCustom = TRUE; // Custom field
+		$this->Nama_Pasien->Sortable = TRUE; // Allow sort
+		$this->fields['Nama_Pasien'] = &$this->Nama_Pasien;
+
+		// No_RM
+		$this->No_RM = new DbField('ugddaftar', 'ugddaftar', 'x_No_RM', 'No_RM', '(SELECT lokpasien.no_rm FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', '(SELECT lokpasien.no_rm FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 200, -1, FALSE, '(SELECT lokpasien.no_rm FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
+		$this->No_RM->IsCustom = TRUE; // Custom field
+		$this->No_RM->Sortable = TRUE; // Allow sort
+		$this->fields['No_RM'] = &$this->No_RM;
+
+		// Tgl_Lahir
+		$this->Tgl_Lahir = new DbField('ugddaftar', 'ugddaftar', 'x_Tgl_Lahir', 'Tgl_Lahir', '(SELECT lokpasien.tgl_lahir FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', CastDateFieldForLike('(SELECT lokpasien.tgl_lahir FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 7, "DB"), 133, 7, FALSE, '(SELECT lokpasien.tgl_lahir FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
+		$this->Tgl_Lahir->IsCustom = TRUE; // Custom field
+		$this->Tgl_Lahir->Sortable = TRUE; // Allow sort
+		$this->fields['Tgl_Lahir'] = &$this->Tgl_Lahir;
+
+		// Jenis_Kelamin
+		$this->Jenis_Kelamin = new DbField('ugddaftar', 'ugddaftar', 'x_Jenis_Kelamin', 'Jenis_Kelamin', '(SELECT lokpasien.Jenis_Kelamin FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', '(SELECT lokpasien.Jenis_Kelamin FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 200, -1, FALSE, '(SELECT lokpasien.Jenis_Kelamin FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
+		$this->Jenis_Kelamin->IsCustom = TRUE; // Custom field
+		$this->Jenis_Kelamin->Sortable = TRUE; // Allow sort
+		$this->fields['Jenis_Kelamin'] = &$this->Jenis_Kelamin;
+
+		// Alamat
+		$this->Alamat = new DbField('ugddaftar', 'ugddaftar', 'x_Alamat', 'Alamat', '(SELECT lokpasien.Alamat FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', '(SELECT lokpasien.Alamat FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 200, -1, FALSE, '(SELECT lokpasien.Alamat FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXTAREA');
+		$this->Alamat->IsCustom = TRUE; // Custom field
+		$this->Alamat->Sortable = TRUE; // Allow sort
+		$this->fields['Alamat'] = &$this->Alamat;
 
 		// Id_Poliklinik
 		$this->Id_Poliklinik = new DbField('ugddaftar', 'ugddaftar', 'x_Id_Poliklinik', 'Id_Poliklinik', '`Id_Poliklinik`', '`Id_Poliklinik`', 200, -1, FALSE, '`Id_Poliklinik`', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'HIDDEN');
@@ -175,36 +204,6 @@ class ugddaftar extends DbTable
 		$this->Petugas->Nullable = FALSE; // NOT NULL field
 		$this->Petugas->Sortable = TRUE; // Allow sort
 		$this->fields['Petugas'] = &$this->Petugas;
-
-		// No_RM
-		$this->No_RM = new DbField('ugddaftar', 'ugddaftar', 'x_No_RM', 'No_RM', '(SELECT lokpasien.no_rm FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', '(SELECT lokpasien.no_rm FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 200, -1, FALSE, '(SELECT lokpasien.no_rm FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
-		$this->No_RM->IsCustom = TRUE; // Custom field
-		$this->No_RM->Sortable = TRUE; // Allow sort
-		$this->fields['No_RM'] = &$this->No_RM;
-
-		// Nama_Pasien
-		$this->Nama_Pasien = new DbField('ugddaftar', 'ugddaftar', 'x_Nama_Pasien', 'Nama_Pasien', '(SELECT lokpasien.nama_pasien FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', '(SELECT lokpasien.nama_pasien FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 200, -1, FALSE, '(SELECT lokpasien.nama_pasien FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
-		$this->Nama_Pasien->IsCustom = TRUE; // Custom field
-		$this->Nama_Pasien->Sortable = TRUE; // Allow sort
-		$this->fields['Nama_Pasien'] = &$this->Nama_Pasien;
-
-		// Tgl_Lahir
-		$this->Tgl_Lahir = new DbField('ugddaftar', 'ugddaftar', 'x_Tgl_Lahir', 'Tgl_Lahir', '(SELECT lokpasien.tgl_lahir FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', CastDateFieldForLike('(SELECT lokpasien.tgl_lahir FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 7, "DB"), 133, 7, FALSE, '(SELECT lokpasien.tgl_lahir FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
-		$this->Tgl_Lahir->IsCustom = TRUE; // Custom field
-		$this->Tgl_Lahir->Sortable = TRUE; // Allow sort
-		$this->fields['Tgl_Lahir'] = &$this->Tgl_Lahir;
-
-		// Jenis_Kelamin
-		$this->Jenis_Kelamin = new DbField('ugddaftar', 'ugddaftar', 'x_Jenis_Kelamin', 'Jenis_Kelamin', '(SELECT lokpasien.Jenis_Kelamin FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', '(SELECT lokpasien.Jenis_Kelamin FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 200, -1, FALSE, '(SELECT lokpasien.Jenis_Kelamin FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXT');
-		$this->Jenis_Kelamin->IsCustom = TRUE; // Custom field
-		$this->Jenis_Kelamin->Sortable = TRUE; // Allow sort
-		$this->fields['Jenis_Kelamin'] = &$this->Jenis_Kelamin;
-
-		// Alamat
-		$this->Alamat = new DbField('ugddaftar', 'ugddaftar', 'x_Alamat', 'Alamat', '(SELECT lokpasien.Alamat FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', '(SELECT lokpasien.Alamat FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', 200, -1, FALSE, '(SELECT lokpasien.Alamat FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien)', FALSE, FALSE, FALSE, 'FORMATTED TEXT', 'TEXTAREA');
-		$this->Alamat->IsCustom = TRUE; // Custom field
-		$this->Alamat->Sortable = TRUE; // Allow sort
-		$this->fields['Alamat'] = &$this->Alamat;
 	}
 
 	// Field Visibility
@@ -271,7 +270,7 @@ class ugddaftar extends DbTable
 	}
 	public function getSqlSelect() // Select
 	{
-		return ($this->SqlSelect <> "") ? $this->SqlSelect : "SELECT *, (SELECT lokpasien.no_rm FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `No_RM`, (SELECT lokpasien.nama_pasien FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `Nama_Pasien`, (SELECT lokpasien.tgl_lahir FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `Tgl_Lahir`, (SELECT lokpasien.Jenis_Kelamin FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `Jenis_Kelamin`, (SELECT lokpasien.Alamat FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `Alamat` FROM " . $this->getSqlFrom();
+		return ($this->SqlSelect <> "") ? $this->SqlSelect : "SELECT *, (SELECT lokpasien.nama_pasien FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `Nama_Pasien`, (SELECT lokpasien.no_rm FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `No_RM`, (SELECT lokpasien.tgl_lahir FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `Tgl_Lahir`, (SELECT lokpasien.Jenis_Kelamin FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `Jenis_Kelamin`, (SELECT lokpasien.Alamat FROM lokpasien WHERE ugddaftar.Id_Pasien = lokpasien.Id_Pasien) AS `Alamat` FROM " . $this->getSqlFrom();
 	}
 	public function sqlSelect() // For backward compatibility
 	{
@@ -560,6 +559,11 @@ class ugddaftar extends DbTable
 		$this->Tgl_Daftar->DbValue = $row['Tgl_Daftar'];
 		$this->Waktu->DbValue = $row['Waktu'];
 		$this->Id_Pasien->DbValue = $row['Id_Pasien'];
+		$this->Nama_Pasien->DbValue = $row['Nama_Pasien'];
+		$this->No_RM->DbValue = $row['No_RM'];
+		$this->Tgl_Lahir->DbValue = $row['Tgl_Lahir'];
+		$this->Jenis_Kelamin->DbValue = $row['Jenis_Kelamin'];
+		$this->Alamat->DbValue = $row['Alamat'];
 		$this->Id_Poliklinik->DbValue = $row['Id_Poliklinik'];
 		$this->Id_Rujukan->DbValue = $row['Id_Rujukan'];
 		$this->Id_JenisPasien->DbValue = $row['Id_JenisPasien'];
@@ -569,11 +573,6 @@ class ugddaftar extends DbTable
 		$this->Rawat->DbValue = $row['Rawat'];
 		$this->Status->DbValue = $row['Status'];
 		$this->Petugas->DbValue = $row['Petugas'];
-		$this->No_RM->DbValue = $row['No_RM'];
-		$this->Nama_Pasien->DbValue = $row['Nama_Pasien'];
-		$this->Tgl_Lahir->DbValue = $row['Tgl_Lahir'];
-		$this->Jenis_Kelamin->DbValue = $row['Jenis_Kelamin'];
-		$this->Alamat->DbValue = $row['Alamat'];
 	}
 
 	// Delete uploaded files
@@ -799,6 +798,11 @@ class ugddaftar extends DbTable
 		$this->Tgl_Daftar->setDbValue($rs->fields('Tgl_Daftar'));
 		$this->Waktu->setDbValue($rs->fields('Waktu'));
 		$this->Id_Pasien->setDbValue($rs->fields('Id_Pasien'));
+		$this->Nama_Pasien->setDbValue($rs->fields('Nama_Pasien'));
+		$this->No_RM->setDbValue($rs->fields('No_RM'));
+		$this->Tgl_Lahir->setDbValue($rs->fields('Tgl_Lahir'));
+		$this->Jenis_Kelamin->setDbValue($rs->fields('Jenis_Kelamin'));
+		$this->Alamat->setDbValue($rs->fields('Alamat'));
 		$this->Id_Poliklinik->setDbValue($rs->fields('Id_Poliklinik'));
 		$this->Id_Rujukan->setDbValue($rs->fields('Id_Rujukan'));
 		$this->Id_JenisPasien->setDbValue($rs->fields('Id_JenisPasien'));
@@ -808,11 +812,6 @@ class ugddaftar extends DbTable
 		$this->Rawat->setDbValue($rs->fields('Rawat'));
 		$this->Status->setDbValue($rs->fields('Status'));
 		$this->Petugas->setDbValue($rs->fields('Petugas'));
-		$this->No_RM->setDbValue($rs->fields('No_RM'));
-		$this->Nama_Pasien->setDbValue($rs->fields('Nama_Pasien'));
-		$this->Tgl_Lahir->setDbValue($rs->fields('Tgl_Lahir'));
-		$this->Jenis_Kelamin->setDbValue($rs->fields('Jenis_Kelamin'));
-		$this->Alamat->setDbValue($rs->fields('Alamat'));
 	}
 
 	// Render list row values
@@ -828,6 +827,11 @@ class ugddaftar extends DbTable
 		// Tgl_Daftar
 		// Waktu
 		// Id_Pasien
+		// Nama_Pasien
+		// No_RM
+		// Tgl_Lahir
+		// Jenis_Kelamin
+		// Alamat
 		// Id_Poliklinik
 		// Id_Rujukan
 		// Id_JenisPasien
@@ -837,11 +841,6 @@ class ugddaftar extends DbTable
 		// Rawat
 		// Status
 		// Petugas
-		// No_RM
-		// Nama_Pasien
-		// Tgl_Lahir
-		// Jenis_Kelamin
-		// Alamat
 		// Id_Daftar
 
 		$this->Id_Daftar->ViewValue = $this->Id_Daftar->CurrentValue;
@@ -860,6 +859,27 @@ class ugddaftar extends DbTable
 		// Id_Pasien
 		$this->Id_Pasien->ViewValue = $this->Id_Pasien->CurrentValue;
 		$this->Id_Pasien->ViewCustomAttributes = "";
+
+		// Nama_Pasien
+		$this->Nama_Pasien->ViewValue = $this->Nama_Pasien->CurrentValue;
+		$this->Nama_Pasien->ViewCustomAttributes = "";
+
+		// No_RM
+		$this->No_RM->ViewValue = $this->No_RM->CurrentValue;
+		$this->No_RM->ViewCustomAttributes = "";
+
+		// Tgl_Lahir
+		$this->Tgl_Lahir->ViewValue = $this->Tgl_Lahir->CurrentValue;
+		$this->Tgl_Lahir->ViewValue = FormatDateTime($this->Tgl_Lahir->ViewValue, 7);
+		$this->Tgl_Lahir->ViewCustomAttributes = "";
+
+		// Jenis_Kelamin
+		$this->Jenis_Kelamin->ViewValue = $this->Jenis_Kelamin->CurrentValue;
+		$this->Jenis_Kelamin->ViewCustomAttributes = "";
+
+		// Alamat
+		$this->Alamat->ViewValue = $this->Alamat->CurrentValue;
+		$this->Alamat->ViewCustomAttributes = "";
 
 		// Id_Poliklinik
 		$this->Id_Poliklinik->ViewValue = $this->Id_Poliklinik->CurrentValue;
@@ -955,27 +975,6 @@ class ugddaftar extends DbTable
 		$this->Petugas->ViewValue = $this->Petugas->CurrentValue;
 		$this->Petugas->ViewCustomAttributes = "";
 
-		// No_RM
-		$this->No_RM->ViewValue = $this->No_RM->CurrentValue;
-		$this->No_RM->ViewCustomAttributes = "";
-
-		// Nama_Pasien
-		$this->Nama_Pasien->ViewValue = $this->Nama_Pasien->CurrentValue;
-		$this->Nama_Pasien->ViewCustomAttributes = "";
-
-		// Tgl_Lahir
-		$this->Tgl_Lahir->ViewValue = $this->Tgl_Lahir->CurrentValue;
-		$this->Tgl_Lahir->ViewValue = FormatDateTime($this->Tgl_Lahir->ViewValue, 7);
-		$this->Tgl_Lahir->ViewCustomAttributes = "";
-
-		// Jenis_Kelamin
-		$this->Jenis_Kelamin->ViewValue = $this->Jenis_Kelamin->CurrentValue;
-		$this->Jenis_Kelamin->ViewCustomAttributes = "";
-
-		// Alamat
-		$this->Alamat->ViewValue = $this->Alamat->CurrentValue;
-		$this->Alamat->ViewCustomAttributes = "";
-
 		// Id_Daftar
 		$this->Id_Daftar->LinkCustomAttributes = "";
 		$this->Id_Daftar->HrefValue = "";
@@ -995,6 +994,31 @@ class ugddaftar extends DbTable
 		$this->Id_Pasien->LinkCustomAttributes = "";
 		$this->Id_Pasien->HrefValue = "";
 		$this->Id_Pasien->TooltipValue = "";
+
+		// Nama_Pasien
+		$this->Nama_Pasien->LinkCustomAttributes = "";
+		$this->Nama_Pasien->HrefValue = "";
+		$this->Nama_Pasien->TooltipValue = "";
+
+		// No_RM
+		$this->No_RM->LinkCustomAttributes = "";
+		$this->No_RM->HrefValue = "";
+		$this->No_RM->TooltipValue = "";
+
+		// Tgl_Lahir
+		$this->Tgl_Lahir->LinkCustomAttributes = "";
+		$this->Tgl_Lahir->HrefValue = "";
+		$this->Tgl_Lahir->TooltipValue = "";
+
+		// Jenis_Kelamin
+		$this->Jenis_Kelamin->LinkCustomAttributes = "";
+		$this->Jenis_Kelamin->HrefValue = "";
+		$this->Jenis_Kelamin->TooltipValue = "";
+
+		// Alamat
+		$this->Alamat->LinkCustomAttributes = "";
+		$this->Alamat->HrefValue = "";
+		$this->Alamat->TooltipValue = "";
 
 		// Id_Poliklinik
 		$this->Id_Poliklinik->LinkCustomAttributes = "";
@@ -1041,31 +1065,6 @@ class ugddaftar extends DbTable
 		$this->Petugas->HrefValue = "";
 		$this->Petugas->TooltipValue = "";
 
-		// No_RM
-		$this->No_RM->LinkCustomAttributes = "";
-		$this->No_RM->HrefValue = "";
-		$this->No_RM->TooltipValue = "";
-
-		// Nama_Pasien
-		$this->Nama_Pasien->LinkCustomAttributes = "";
-		$this->Nama_Pasien->HrefValue = "";
-		$this->Nama_Pasien->TooltipValue = "";
-
-		// Tgl_Lahir
-		$this->Tgl_Lahir->LinkCustomAttributes = "";
-		$this->Tgl_Lahir->HrefValue = "";
-		$this->Tgl_Lahir->TooltipValue = "";
-
-		// Jenis_Kelamin
-		$this->Jenis_Kelamin->LinkCustomAttributes = "";
-		$this->Jenis_Kelamin->HrefValue = "";
-		$this->Jenis_Kelamin->TooltipValue = "";
-
-		// Alamat
-		$this->Alamat->LinkCustomAttributes = "";
-		$this->Alamat->HrefValue = "";
-		$this->Alamat->TooltipValue = "";
-
 		// Call Row Rendered event
 		$this->Row_Rendered();
 
@@ -1082,12 +1081,8 @@ class ugddaftar extends DbTable
 		$this->Row_Rendering();
 
 		// Id_Daftar
-		$this->Id_Daftar->EditAttrs["class"] = "form-control";
-		$this->Id_Daftar->EditCustomAttributes = "";
-		$this->Id_Daftar->EditValue = $this->Id_Daftar->CurrentValue;
-		$this->Id_Daftar->ViewCustomAttributes = "";
-
 		// Tgl_Daftar
+
 		$this->Tgl_Daftar->EditAttrs["class"] = "form-control";
 		$this->Tgl_Daftar->EditCustomAttributes = "";
 		$this->Tgl_Daftar->EditValue = FormatDateTime($this->Tgl_Daftar->CurrentValue, 7);
@@ -1103,6 +1098,37 @@ class ugddaftar extends DbTable
 		if (REMOVE_XSS)
 			$this->Id_Pasien->CurrentValue = HtmlDecode($this->Id_Pasien->CurrentValue);
 		$this->Id_Pasien->EditValue = $this->Id_Pasien->CurrentValue;
+
+		// Nama_Pasien
+		$this->Nama_Pasien->EditAttrs["class"] = "form-control";
+		$this->Nama_Pasien->EditCustomAttributes = "";
+		if (REMOVE_XSS)
+			$this->Nama_Pasien->CurrentValue = HtmlDecode($this->Nama_Pasien->CurrentValue);
+		$this->Nama_Pasien->EditValue = $this->Nama_Pasien->CurrentValue;
+
+		// No_RM
+		$this->No_RM->EditAttrs["class"] = "form-control";
+		$this->No_RM->EditCustomAttributes = "";
+		if (REMOVE_XSS)
+			$this->No_RM->CurrentValue = HtmlDecode($this->No_RM->CurrentValue);
+		$this->No_RM->EditValue = $this->No_RM->CurrentValue;
+
+		// Tgl_Lahir
+		$this->Tgl_Lahir->EditAttrs["class"] = "form-control";
+		$this->Tgl_Lahir->EditCustomAttributes = "";
+		$this->Tgl_Lahir->EditValue = FormatDateTime($this->Tgl_Lahir->CurrentValue, 7);
+
+		// Jenis_Kelamin
+		$this->Jenis_Kelamin->EditAttrs["class"] = "form-control";
+		$this->Jenis_Kelamin->EditCustomAttributes = "";
+		if (REMOVE_XSS)
+			$this->Jenis_Kelamin->CurrentValue = HtmlDecode($this->Jenis_Kelamin->CurrentValue);
+		$this->Jenis_Kelamin->EditValue = $this->Jenis_Kelamin->CurrentValue;
+
+		// Alamat
+		$this->Alamat->EditAttrs["class"] = "form-control";
+		$this->Alamat->EditCustomAttributes = "";
+		$this->Alamat->EditValue = $this->Alamat->CurrentValue;
 
 		// Id_Poliklinik
 		$this->Id_Poliklinik->EditAttrs["class"] = "form-control";
@@ -1143,37 +1169,6 @@ class ugddaftar extends DbTable
 		$this->Petugas->EditAttrs["class"] = "form-control";
 		$this->Petugas->EditCustomAttributes = "";
 
-		// No_RM
-		$this->No_RM->EditAttrs["class"] = "form-control";
-		$this->No_RM->EditCustomAttributes = "";
-		if (REMOVE_XSS)
-			$this->No_RM->CurrentValue = HtmlDecode($this->No_RM->CurrentValue);
-		$this->No_RM->EditValue = $this->No_RM->CurrentValue;
-
-		// Nama_Pasien
-		$this->Nama_Pasien->EditAttrs["class"] = "form-control";
-		$this->Nama_Pasien->EditCustomAttributes = "";
-		if (REMOVE_XSS)
-			$this->Nama_Pasien->CurrentValue = HtmlDecode($this->Nama_Pasien->CurrentValue);
-		$this->Nama_Pasien->EditValue = $this->Nama_Pasien->CurrentValue;
-
-		// Tgl_Lahir
-		$this->Tgl_Lahir->EditAttrs["class"] = "form-control";
-		$this->Tgl_Lahir->EditCustomAttributes = "";
-		$this->Tgl_Lahir->EditValue = FormatDateTime($this->Tgl_Lahir->CurrentValue, 7);
-
-		// Jenis_Kelamin
-		$this->Jenis_Kelamin->EditAttrs["class"] = "form-control";
-		$this->Jenis_Kelamin->EditCustomAttributes = "";
-		if (REMOVE_XSS)
-			$this->Jenis_Kelamin->CurrentValue = HtmlDecode($this->Jenis_Kelamin->CurrentValue);
-		$this->Jenis_Kelamin->EditValue = $this->Jenis_Kelamin->CurrentValue;
-
-		// Alamat
-		$this->Alamat->EditAttrs["class"] = "form-control";
-		$this->Alamat->EditCustomAttributes = "";
-		$this->Alamat->EditValue = $this->Alamat->CurrentValue;
-
 		// Call Row Rendered event
 		$this->Row_Rendered();
 	}
@@ -1207,6 +1202,11 @@ class ugddaftar extends DbTable
 					$doc->exportCaption($this->Tgl_Daftar);
 					$doc->exportCaption($this->Waktu);
 					$doc->exportCaption($this->Id_Pasien);
+					$doc->exportCaption($this->Nama_Pasien);
+					$doc->exportCaption($this->No_RM);
+					$doc->exportCaption($this->Tgl_Lahir);
+					$doc->exportCaption($this->Jenis_Kelamin);
+					$doc->exportCaption($this->Alamat);
 					$doc->exportCaption($this->Id_Poliklinik);
 					$doc->exportCaption($this->Id_Rujukan);
 					$doc->exportCaption($this->Id_JenisPasien);
@@ -1216,16 +1216,16 @@ class ugddaftar extends DbTable
 					$doc->exportCaption($this->Rawat);
 					$doc->exportCaption($this->Status);
 					$doc->exportCaption($this->Petugas);
-					$doc->exportCaption($this->No_RM);
-					$doc->exportCaption($this->Nama_Pasien);
-					$doc->exportCaption($this->Tgl_Lahir);
-					$doc->exportCaption($this->Jenis_Kelamin);
-					$doc->exportCaption($this->Alamat);
 				} else {
 					$doc->exportCaption($this->Id_Daftar);
 					$doc->exportCaption($this->Tgl_Daftar);
 					$doc->exportCaption($this->Waktu);
 					$doc->exportCaption($this->Id_Pasien);
+					$doc->exportCaption($this->Nama_Pasien);
+					$doc->exportCaption($this->No_RM);
+					$doc->exportCaption($this->Tgl_Lahir);
+					$doc->exportCaption($this->Jenis_Kelamin);
+					$doc->exportCaption($this->Alamat);
 					$doc->exportCaption($this->Id_Poliklinik);
 					$doc->exportCaption($this->Id_Rujukan);
 					$doc->exportCaption($this->Id_JenisPasien);
@@ -1235,11 +1235,6 @@ class ugddaftar extends DbTable
 					$doc->exportCaption($this->Rawat);
 					$doc->exportCaption($this->Status);
 					$doc->exportCaption($this->Petugas);
-					$doc->exportCaption($this->No_RM);
-					$doc->exportCaption($this->Nama_Pasien);
-					$doc->exportCaption($this->Tgl_Lahir);
-					$doc->exportCaption($this->Jenis_Kelamin);
-					$doc->exportCaption($this->Alamat);
 				}
 				$doc->endExportRow();
 			}
@@ -1275,6 +1270,11 @@ class ugddaftar extends DbTable
 						$doc->exportField($this->Tgl_Daftar);
 						$doc->exportField($this->Waktu);
 						$doc->exportField($this->Id_Pasien);
+						$doc->exportField($this->Nama_Pasien);
+						$doc->exportField($this->No_RM);
+						$doc->exportField($this->Tgl_Lahir);
+						$doc->exportField($this->Jenis_Kelamin);
+						$doc->exportField($this->Alamat);
 						$doc->exportField($this->Id_Poliklinik);
 						$doc->exportField($this->Id_Rujukan);
 						$doc->exportField($this->Id_JenisPasien);
@@ -1284,16 +1284,16 @@ class ugddaftar extends DbTable
 						$doc->exportField($this->Rawat);
 						$doc->exportField($this->Status);
 						$doc->exportField($this->Petugas);
-						$doc->exportField($this->No_RM);
-						$doc->exportField($this->Nama_Pasien);
-						$doc->exportField($this->Tgl_Lahir);
-						$doc->exportField($this->Jenis_Kelamin);
-						$doc->exportField($this->Alamat);
 					} else {
 						$doc->exportField($this->Id_Daftar);
 						$doc->exportField($this->Tgl_Daftar);
 						$doc->exportField($this->Waktu);
 						$doc->exportField($this->Id_Pasien);
+						$doc->exportField($this->Nama_Pasien);
+						$doc->exportField($this->No_RM);
+						$doc->exportField($this->Tgl_Lahir);
+						$doc->exportField($this->Jenis_Kelamin);
+						$doc->exportField($this->Alamat);
 						$doc->exportField($this->Id_Poliklinik);
 						$doc->exportField($this->Id_Rujukan);
 						$doc->exportField($this->Id_JenisPasien);
@@ -1303,11 +1303,6 @@ class ugddaftar extends DbTable
 						$doc->exportField($this->Rawat);
 						$doc->exportField($this->Status);
 						$doc->exportField($this->Petugas);
-						$doc->exportField($this->No_RM);
-						$doc->exportField($this->Nama_Pasien);
-						$doc->exportField($this->Tgl_Lahir);
-						$doc->exportField($this->Jenis_Kelamin);
-						$doc->exportField($this->Alamat);
 					}
 					$doc->endExportRow($rowCnt);
 				}

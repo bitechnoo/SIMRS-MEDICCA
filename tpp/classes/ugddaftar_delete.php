@@ -580,6 +580,11 @@ class ugddaftar_delete extends ugddaftar
 		$this->Tgl_Daftar->setVisibility();
 		$this->Waktu->setVisibility();
 		$this->Id_Pasien->setVisibility();
+		$this->Nama_Pasien->setVisibility();
+		$this->No_RM->setVisibility();
+		$this->Tgl_Lahir->setVisibility();
+		$this->Jenis_Kelamin->setVisibility();
+		$this->Alamat->setVisibility();
 		$this->Id_Poliklinik->setVisibility();
 		$this->Id_Rujukan->setVisibility();
 		$this->Id_JenisPasien->setVisibility();
@@ -589,11 +594,6 @@ class ugddaftar_delete extends ugddaftar
 		$this->Rawat->setVisibility();
 		$this->Status->setVisibility();
 		$this->Petugas->setVisibility();
-		$this->No_RM->setVisibility();
-		$this->Nama_Pasien->setVisibility();
-		$this->Tgl_Lahir->setVisibility();
-		$this->Jenis_Kelamin->setVisibility();
-		$this->Alamat->setVisibility();
 		$this->hideFieldsForAddEdit();
 
 		// Do not use lookup cache
@@ -739,6 +739,11 @@ class ugddaftar_delete extends ugddaftar
 		$this->Tgl_Daftar->setDbValue($row['Tgl_Daftar']);
 		$this->Waktu->setDbValue($row['Waktu']);
 		$this->Id_Pasien->setDbValue($row['Id_Pasien']);
+		$this->Nama_Pasien->setDbValue($row['Nama_Pasien']);
+		$this->No_RM->setDbValue($row['No_RM']);
+		$this->Tgl_Lahir->setDbValue($row['Tgl_Lahir']);
+		$this->Jenis_Kelamin->setDbValue($row['Jenis_Kelamin']);
+		$this->Alamat->setDbValue($row['Alamat']);
 		$this->Id_Poliklinik->setDbValue($row['Id_Poliklinik']);
 		$this->Id_Rujukan->setDbValue($row['Id_Rujukan']);
 		$this->Id_JenisPasien->setDbValue($row['Id_JenisPasien']);
@@ -748,11 +753,6 @@ class ugddaftar_delete extends ugddaftar
 		$this->Rawat->setDbValue($row['Rawat']);
 		$this->Status->setDbValue($row['Status']);
 		$this->Petugas->setDbValue($row['Petugas']);
-		$this->No_RM->setDbValue($row['No_RM']);
-		$this->Nama_Pasien->setDbValue($row['Nama_Pasien']);
-		$this->Tgl_Lahir->setDbValue($row['Tgl_Lahir']);
-		$this->Jenis_Kelamin->setDbValue($row['Jenis_Kelamin']);
-		$this->Alamat->setDbValue($row['Alamat']);
 	}
 
 	// Return a row with default values
@@ -763,6 +763,11 @@ class ugddaftar_delete extends ugddaftar
 		$row['Tgl_Daftar'] = NULL;
 		$row['Waktu'] = NULL;
 		$row['Id_Pasien'] = NULL;
+		$row['Nama_Pasien'] = NULL;
+		$row['No_RM'] = NULL;
+		$row['Tgl_Lahir'] = NULL;
+		$row['Jenis_Kelamin'] = NULL;
+		$row['Alamat'] = NULL;
 		$row['Id_Poliklinik'] = NULL;
 		$row['Id_Rujukan'] = NULL;
 		$row['Id_JenisPasien'] = NULL;
@@ -772,11 +777,6 @@ class ugddaftar_delete extends ugddaftar
 		$row['Rawat'] = NULL;
 		$row['Status'] = NULL;
 		$row['Petugas'] = NULL;
-		$row['No_RM'] = NULL;
-		$row['Nama_Pasien'] = NULL;
-		$row['Tgl_Lahir'] = NULL;
-		$row['Jenis_Kelamin'] = NULL;
-		$row['Alamat'] = NULL;
 		return $row;
 	}
 
@@ -799,6 +799,11 @@ class ugddaftar_delete extends ugddaftar
 		// Tgl_Daftar
 		// Waktu
 		// Id_Pasien
+		// Nama_Pasien
+		// No_RM
+		// Tgl_Lahir
+		// Jenis_Kelamin
+		// Alamat
 		// Id_Poliklinik
 		// Id_Rujukan
 		// Id_JenisPasien
@@ -808,11 +813,6 @@ class ugddaftar_delete extends ugddaftar
 		// Rawat
 		// Status
 		// Petugas
-		// No_RM
-		// Nama_Pasien
-		// Tgl_Lahir
-		// Jenis_Kelamin
-		// Alamat
 
 		if ($this->RowType == ROWTYPE_VIEW) { // View row
 
@@ -833,6 +833,27 @@ class ugddaftar_delete extends ugddaftar
 			// Id_Pasien
 			$this->Id_Pasien->ViewValue = $this->Id_Pasien->CurrentValue;
 			$this->Id_Pasien->ViewCustomAttributes = "";
+
+			// Nama_Pasien
+			$this->Nama_Pasien->ViewValue = $this->Nama_Pasien->CurrentValue;
+			$this->Nama_Pasien->ViewCustomAttributes = "";
+
+			// No_RM
+			$this->No_RM->ViewValue = $this->No_RM->CurrentValue;
+			$this->No_RM->ViewCustomAttributes = "";
+
+			// Tgl_Lahir
+			$this->Tgl_Lahir->ViewValue = $this->Tgl_Lahir->CurrentValue;
+			$this->Tgl_Lahir->ViewValue = FormatDateTime($this->Tgl_Lahir->ViewValue, 7);
+			$this->Tgl_Lahir->ViewCustomAttributes = "";
+
+			// Jenis_Kelamin
+			$this->Jenis_Kelamin->ViewValue = $this->Jenis_Kelamin->CurrentValue;
+			$this->Jenis_Kelamin->ViewCustomAttributes = "";
+
+			// Alamat
+			$this->Alamat->ViewValue = $this->Alamat->CurrentValue;
+			$this->Alamat->ViewCustomAttributes = "";
 
 			// Id_Poliklinik
 			$this->Id_Poliklinik->ViewValue = $this->Id_Poliklinik->CurrentValue;
@@ -928,27 +949,6 @@ class ugddaftar_delete extends ugddaftar
 			$this->Petugas->ViewValue = $this->Petugas->CurrentValue;
 			$this->Petugas->ViewCustomAttributes = "";
 
-			// No_RM
-			$this->No_RM->ViewValue = $this->No_RM->CurrentValue;
-			$this->No_RM->ViewCustomAttributes = "";
-
-			// Nama_Pasien
-			$this->Nama_Pasien->ViewValue = $this->Nama_Pasien->CurrentValue;
-			$this->Nama_Pasien->ViewCustomAttributes = "";
-
-			// Tgl_Lahir
-			$this->Tgl_Lahir->ViewValue = $this->Tgl_Lahir->CurrentValue;
-			$this->Tgl_Lahir->ViewValue = FormatDateTime($this->Tgl_Lahir->ViewValue, 7);
-			$this->Tgl_Lahir->ViewCustomAttributes = "";
-
-			// Jenis_Kelamin
-			$this->Jenis_Kelamin->ViewValue = $this->Jenis_Kelamin->CurrentValue;
-			$this->Jenis_Kelamin->ViewCustomAttributes = "";
-
-			// Alamat
-			$this->Alamat->ViewValue = $this->Alamat->CurrentValue;
-			$this->Alamat->ViewCustomAttributes = "";
-
 			// Id_Daftar
 			$this->Id_Daftar->LinkCustomAttributes = "";
 			$this->Id_Daftar->HrefValue = "";
@@ -968,6 +968,31 @@ class ugddaftar_delete extends ugddaftar
 			$this->Id_Pasien->LinkCustomAttributes = "";
 			$this->Id_Pasien->HrefValue = "";
 			$this->Id_Pasien->TooltipValue = "";
+
+			// Nama_Pasien
+			$this->Nama_Pasien->LinkCustomAttributes = "";
+			$this->Nama_Pasien->HrefValue = "";
+			$this->Nama_Pasien->TooltipValue = "";
+
+			// No_RM
+			$this->No_RM->LinkCustomAttributes = "";
+			$this->No_RM->HrefValue = "";
+			$this->No_RM->TooltipValue = "";
+
+			// Tgl_Lahir
+			$this->Tgl_Lahir->LinkCustomAttributes = "";
+			$this->Tgl_Lahir->HrefValue = "";
+			$this->Tgl_Lahir->TooltipValue = "";
+
+			// Jenis_Kelamin
+			$this->Jenis_Kelamin->LinkCustomAttributes = "";
+			$this->Jenis_Kelamin->HrefValue = "";
+			$this->Jenis_Kelamin->TooltipValue = "";
+
+			// Alamat
+			$this->Alamat->LinkCustomAttributes = "";
+			$this->Alamat->HrefValue = "";
+			$this->Alamat->TooltipValue = "";
 
 			// Id_Poliklinik
 			$this->Id_Poliklinik->LinkCustomAttributes = "";
@@ -1013,31 +1038,6 @@ class ugddaftar_delete extends ugddaftar
 			$this->Petugas->LinkCustomAttributes = "";
 			$this->Petugas->HrefValue = "";
 			$this->Petugas->TooltipValue = "";
-
-			// No_RM
-			$this->No_RM->LinkCustomAttributes = "";
-			$this->No_RM->HrefValue = "";
-			$this->No_RM->TooltipValue = "";
-
-			// Nama_Pasien
-			$this->Nama_Pasien->LinkCustomAttributes = "";
-			$this->Nama_Pasien->HrefValue = "";
-			$this->Nama_Pasien->TooltipValue = "";
-
-			// Tgl_Lahir
-			$this->Tgl_Lahir->LinkCustomAttributes = "";
-			$this->Tgl_Lahir->HrefValue = "";
-			$this->Tgl_Lahir->TooltipValue = "";
-
-			// Jenis_Kelamin
-			$this->Jenis_Kelamin->LinkCustomAttributes = "";
-			$this->Jenis_Kelamin->HrefValue = "";
-			$this->Jenis_Kelamin->TooltipValue = "";
-
-			// Alamat
-			$this->Alamat->LinkCustomAttributes = "";
-			$this->Alamat->HrefValue = "";
-			$this->Alamat->TooltipValue = "";
 		}
 
 		// Call Row Rendered event

@@ -606,6 +606,8 @@ class ugddaftar_list extends ugddaftar
 	 */
 	protected function hideFieldsForAddEdit()
 	{
+		if ($this->isAddOrEdit())
+			$this->Id_Daftar->Visible = FALSE;
 	}
 
 	// Class variables
@@ -748,6 +750,11 @@ class ugddaftar_list extends ugddaftar
 		$this->Tgl_Daftar->setVisibility();
 		$this->Waktu->setVisibility();
 		$this->Id_Pasien->setVisibility();
+		$this->Nama_Pasien->setVisibility();
+		$this->No_RM->setVisibility();
+		$this->Tgl_Lahir->setVisibility();
+		$this->Jenis_Kelamin->setVisibility();
+		$this->Alamat->setVisibility();
 		$this->Id_Poliklinik->setVisibility();
 		$this->Id_Rujukan->setVisibility();
 		$this->Id_JenisPasien->setVisibility();
@@ -757,11 +764,6 @@ class ugddaftar_list extends ugddaftar
 		$this->Rawat->setVisibility();
 		$this->Status->setVisibility();
 		$this->Petugas->setVisibility();
-		$this->No_RM->setVisibility();
-		$this->Nama_Pasien->setVisibility();
-		$this->Tgl_Lahir->setVisibility();
-		$this->Jenis_Kelamin->setVisibility();
-		$this->Alamat->setVisibility();
 		$this->hideFieldsForAddEdit();
 
 		// Global Page Loading event (in userfn*.php)
@@ -1044,6 +1046,11 @@ class ugddaftar_list extends ugddaftar
 		$filterList = Concat($filterList, $this->Tgl_Daftar->AdvancedSearch->toJson(), ","); // Field Tgl_Daftar
 		$filterList = Concat($filterList, $this->Waktu->AdvancedSearch->toJson(), ","); // Field Waktu
 		$filterList = Concat($filterList, $this->Id_Pasien->AdvancedSearch->toJson(), ","); // Field Id_Pasien
+		$filterList = Concat($filterList, $this->Nama_Pasien->AdvancedSearch->toJson(), ","); // Field Nama_Pasien
+		$filterList = Concat($filterList, $this->No_RM->AdvancedSearch->toJson(), ","); // Field No_RM
+		$filterList = Concat($filterList, $this->Tgl_Lahir->AdvancedSearch->toJson(), ","); // Field Tgl_Lahir
+		$filterList = Concat($filterList, $this->Jenis_Kelamin->AdvancedSearch->toJson(), ","); // Field Jenis_Kelamin
+		$filterList = Concat($filterList, $this->Alamat->AdvancedSearch->toJson(), ","); // Field Alamat
 		$filterList = Concat($filterList, $this->Id_Poliklinik->AdvancedSearch->toJson(), ","); // Field Id_Poliklinik
 		$filterList = Concat($filterList, $this->Lama_Baru->AdvancedSearch->toJson(), ","); // Field Lama_Baru
 		$filterList = Concat($filterList, $this->Id_BiayaDaftar->AdvancedSearch->toJson(), ","); // Field Id_BiayaDaftar
@@ -1051,11 +1058,6 @@ class ugddaftar_list extends ugddaftar
 		$filterList = Concat($filterList, $this->Rawat->AdvancedSearch->toJson(), ","); // Field Rawat
 		$filterList = Concat($filterList, $this->Status->AdvancedSearch->toJson(), ","); // Field Status
 		$filterList = Concat($filterList, $this->Petugas->AdvancedSearch->toJson(), ","); // Field Petugas
-		$filterList = Concat($filterList, $this->No_RM->AdvancedSearch->toJson(), ","); // Field No_RM
-		$filterList = Concat($filterList, $this->Nama_Pasien->AdvancedSearch->toJson(), ","); // Field Nama_Pasien
-		$filterList = Concat($filterList, $this->Tgl_Lahir->AdvancedSearch->toJson(), ","); // Field Tgl_Lahir
-		$filterList = Concat($filterList, $this->Jenis_Kelamin->AdvancedSearch->toJson(), ","); // Field Jenis_Kelamin
-		$filterList = Concat($filterList, $this->Alamat->AdvancedSearch->toJson(), ","); // Field Alamat
 		if ($this->BasicSearch->Keyword <> "") {
 			$wrk = "\"" . TABLE_BASIC_SEARCH . "\":\"" . JsEncode($this->BasicSearch->Keyword) . "\",\"" . TABLE_BASIC_SEARCH_TYPE . "\":\"" . JsEncode($this->BasicSearch->Type) . "\"";
 			$filterList = Concat($filterList, $wrk, ",");
@@ -1126,6 +1128,46 @@ class ugddaftar_list extends ugddaftar
 		$this->Id_Pasien->AdvancedSearch->SearchOperator2 = @$filter["w_Id_Pasien"];
 		$this->Id_Pasien->AdvancedSearch->save();
 
+		// Field Nama_Pasien
+		$this->Nama_Pasien->AdvancedSearch->SearchValue = @$filter["x_Nama_Pasien"];
+		$this->Nama_Pasien->AdvancedSearch->SearchOperator = @$filter["z_Nama_Pasien"];
+		$this->Nama_Pasien->AdvancedSearch->SearchCondition = @$filter["v_Nama_Pasien"];
+		$this->Nama_Pasien->AdvancedSearch->SearchValue2 = @$filter["y_Nama_Pasien"];
+		$this->Nama_Pasien->AdvancedSearch->SearchOperator2 = @$filter["w_Nama_Pasien"];
+		$this->Nama_Pasien->AdvancedSearch->save();
+
+		// Field No_RM
+		$this->No_RM->AdvancedSearch->SearchValue = @$filter["x_No_RM"];
+		$this->No_RM->AdvancedSearch->SearchOperator = @$filter["z_No_RM"];
+		$this->No_RM->AdvancedSearch->SearchCondition = @$filter["v_No_RM"];
+		$this->No_RM->AdvancedSearch->SearchValue2 = @$filter["y_No_RM"];
+		$this->No_RM->AdvancedSearch->SearchOperator2 = @$filter["w_No_RM"];
+		$this->No_RM->AdvancedSearch->save();
+
+		// Field Tgl_Lahir
+		$this->Tgl_Lahir->AdvancedSearch->SearchValue = @$filter["x_Tgl_Lahir"];
+		$this->Tgl_Lahir->AdvancedSearch->SearchOperator = @$filter["z_Tgl_Lahir"];
+		$this->Tgl_Lahir->AdvancedSearch->SearchCondition = @$filter["v_Tgl_Lahir"];
+		$this->Tgl_Lahir->AdvancedSearch->SearchValue2 = @$filter["y_Tgl_Lahir"];
+		$this->Tgl_Lahir->AdvancedSearch->SearchOperator2 = @$filter["w_Tgl_Lahir"];
+		$this->Tgl_Lahir->AdvancedSearch->save();
+
+		// Field Jenis_Kelamin
+		$this->Jenis_Kelamin->AdvancedSearch->SearchValue = @$filter["x_Jenis_Kelamin"];
+		$this->Jenis_Kelamin->AdvancedSearch->SearchOperator = @$filter["z_Jenis_Kelamin"];
+		$this->Jenis_Kelamin->AdvancedSearch->SearchCondition = @$filter["v_Jenis_Kelamin"];
+		$this->Jenis_Kelamin->AdvancedSearch->SearchValue2 = @$filter["y_Jenis_Kelamin"];
+		$this->Jenis_Kelamin->AdvancedSearch->SearchOperator2 = @$filter["w_Jenis_Kelamin"];
+		$this->Jenis_Kelamin->AdvancedSearch->save();
+
+		// Field Alamat
+		$this->Alamat->AdvancedSearch->SearchValue = @$filter["x_Alamat"];
+		$this->Alamat->AdvancedSearch->SearchOperator = @$filter["z_Alamat"];
+		$this->Alamat->AdvancedSearch->SearchCondition = @$filter["v_Alamat"];
+		$this->Alamat->AdvancedSearch->SearchValue2 = @$filter["y_Alamat"];
+		$this->Alamat->AdvancedSearch->SearchOperator2 = @$filter["w_Alamat"];
+		$this->Alamat->AdvancedSearch->save();
+
 		// Field Id_Poliklinik
 		$this->Id_Poliklinik->AdvancedSearch->SearchValue = @$filter["x_Id_Poliklinik"];
 		$this->Id_Poliklinik->AdvancedSearch->SearchOperator = @$filter["z_Id_Poliklinik"];
@@ -1181,46 +1223,6 @@ class ugddaftar_list extends ugddaftar
 		$this->Petugas->AdvancedSearch->SearchValue2 = @$filter["y_Petugas"];
 		$this->Petugas->AdvancedSearch->SearchOperator2 = @$filter["w_Petugas"];
 		$this->Petugas->AdvancedSearch->save();
-
-		// Field No_RM
-		$this->No_RM->AdvancedSearch->SearchValue = @$filter["x_No_RM"];
-		$this->No_RM->AdvancedSearch->SearchOperator = @$filter["z_No_RM"];
-		$this->No_RM->AdvancedSearch->SearchCondition = @$filter["v_No_RM"];
-		$this->No_RM->AdvancedSearch->SearchValue2 = @$filter["y_No_RM"];
-		$this->No_RM->AdvancedSearch->SearchOperator2 = @$filter["w_No_RM"];
-		$this->No_RM->AdvancedSearch->save();
-
-		// Field Nama_Pasien
-		$this->Nama_Pasien->AdvancedSearch->SearchValue = @$filter["x_Nama_Pasien"];
-		$this->Nama_Pasien->AdvancedSearch->SearchOperator = @$filter["z_Nama_Pasien"];
-		$this->Nama_Pasien->AdvancedSearch->SearchCondition = @$filter["v_Nama_Pasien"];
-		$this->Nama_Pasien->AdvancedSearch->SearchValue2 = @$filter["y_Nama_Pasien"];
-		$this->Nama_Pasien->AdvancedSearch->SearchOperator2 = @$filter["w_Nama_Pasien"];
-		$this->Nama_Pasien->AdvancedSearch->save();
-
-		// Field Tgl_Lahir
-		$this->Tgl_Lahir->AdvancedSearch->SearchValue = @$filter["x_Tgl_Lahir"];
-		$this->Tgl_Lahir->AdvancedSearch->SearchOperator = @$filter["z_Tgl_Lahir"];
-		$this->Tgl_Lahir->AdvancedSearch->SearchCondition = @$filter["v_Tgl_Lahir"];
-		$this->Tgl_Lahir->AdvancedSearch->SearchValue2 = @$filter["y_Tgl_Lahir"];
-		$this->Tgl_Lahir->AdvancedSearch->SearchOperator2 = @$filter["w_Tgl_Lahir"];
-		$this->Tgl_Lahir->AdvancedSearch->save();
-
-		// Field Jenis_Kelamin
-		$this->Jenis_Kelamin->AdvancedSearch->SearchValue = @$filter["x_Jenis_Kelamin"];
-		$this->Jenis_Kelamin->AdvancedSearch->SearchOperator = @$filter["z_Jenis_Kelamin"];
-		$this->Jenis_Kelamin->AdvancedSearch->SearchCondition = @$filter["v_Jenis_Kelamin"];
-		$this->Jenis_Kelamin->AdvancedSearch->SearchValue2 = @$filter["y_Jenis_Kelamin"];
-		$this->Jenis_Kelamin->AdvancedSearch->SearchOperator2 = @$filter["w_Jenis_Kelamin"];
-		$this->Jenis_Kelamin->AdvancedSearch->save();
-
-		// Field Alamat
-		$this->Alamat->AdvancedSearch->SearchValue = @$filter["x_Alamat"];
-		$this->Alamat->AdvancedSearch->SearchOperator = @$filter["z_Alamat"];
-		$this->Alamat->AdvancedSearch->SearchCondition = @$filter["v_Alamat"];
-		$this->Alamat->AdvancedSearch->SearchValue2 = @$filter["y_Alamat"];
-		$this->Alamat->AdvancedSearch->SearchOperator2 = @$filter["w_Alamat"];
-		$this->Alamat->AdvancedSearch->save();
 		$this->BasicSearch->setKeyword(@$filter[TABLE_BASIC_SEARCH]);
 		$this->BasicSearch->setType(@$filter[TABLE_BASIC_SEARCH_TYPE]);
 	}
@@ -1231,6 +1233,10 @@ class ugddaftar_list extends ugddaftar
 		$where = "";
 		$this->buildBasicSearchSql($where, $this->Id_Daftar, $arKeywords, $type);
 		$this->buildBasicSearchSql($where, $this->Id_Pasien, $arKeywords, $type);
+		$this->buildBasicSearchSql($where, $this->Nama_Pasien, $arKeywords, $type);
+		$this->buildBasicSearchSql($where, $this->No_RM, $arKeywords, $type);
+		$this->buildBasicSearchSql($where, $this->Jenis_Kelamin, $arKeywords, $type);
+		$this->buildBasicSearchSql($where, $this->Alamat, $arKeywords, $type);
 		$this->buildBasicSearchSql($where, $this->Id_Poliklinik, $arKeywords, $type);
 		$this->buildBasicSearchSql($where, $this->Id_Rujukan, $arKeywords, $type);
 		$this->buildBasicSearchSql($where, $this->Id_JenisPasien, $arKeywords, $type);
@@ -1239,10 +1245,6 @@ class ugddaftar_list extends ugddaftar
 		$this->buildBasicSearchSql($where, $this->Rawat, $arKeywords, $type);
 		$this->buildBasicSearchSql($where, $this->Status, $arKeywords, $type);
 		$this->buildBasicSearchSql($where, $this->Petugas, $arKeywords, $type);
-		$this->buildBasicSearchSql($where, $this->No_RM, $arKeywords, $type);
-		$this->buildBasicSearchSql($where, $this->Nama_Pasien, $arKeywords, $type);
-		$this->buildBasicSearchSql($where, $this->Jenis_Kelamin, $arKeywords, $type);
-		$this->buildBasicSearchSql($where, $this->Alamat, $arKeywords, $type);
 		return $where;
 	}
 
@@ -1409,6 +1411,11 @@ class ugddaftar_list extends ugddaftar
 			$this->updateSort($this->Tgl_Daftar, $ctrl); // Tgl_Daftar
 			$this->updateSort($this->Waktu, $ctrl); // Waktu
 			$this->updateSort($this->Id_Pasien, $ctrl); // Id_Pasien
+			$this->updateSort($this->Nama_Pasien, $ctrl); // Nama_Pasien
+			$this->updateSort($this->No_RM, $ctrl); // No_RM
+			$this->updateSort($this->Tgl_Lahir, $ctrl); // Tgl_Lahir
+			$this->updateSort($this->Jenis_Kelamin, $ctrl); // Jenis_Kelamin
+			$this->updateSort($this->Alamat, $ctrl); // Alamat
 			$this->updateSort($this->Id_Poliklinik, $ctrl); // Id_Poliklinik
 			$this->updateSort($this->Id_Rujukan, $ctrl); // Id_Rujukan
 			$this->updateSort($this->Id_JenisPasien, $ctrl); // Id_JenisPasien
@@ -1418,11 +1425,6 @@ class ugddaftar_list extends ugddaftar
 			$this->updateSort($this->Rawat, $ctrl); // Rawat
 			$this->updateSort($this->Status, $ctrl); // Status
 			$this->updateSort($this->Petugas, $ctrl); // Petugas
-			$this->updateSort($this->No_RM, $ctrl); // No_RM
-			$this->updateSort($this->Nama_Pasien, $ctrl); // Nama_Pasien
-			$this->updateSort($this->Tgl_Lahir, $ctrl); // Tgl_Lahir
-			$this->updateSort($this->Jenis_Kelamin, $ctrl); // Jenis_Kelamin
-			$this->updateSort($this->Alamat, $ctrl); // Alamat
 			$this->setStartRecordNumber(1); // Reset start position
 		}
 	}
@@ -1462,6 +1464,11 @@ class ugddaftar_list extends ugddaftar
 				$this->Tgl_Daftar->setSort("");
 				$this->Waktu->setSort("");
 				$this->Id_Pasien->setSort("");
+				$this->Nama_Pasien->setSort("");
+				$this->No_RM->setSort("");
+				$this->Tgl_Lahir->setSort("");
+				$this->Jenis_Kelamin->setSort("");
+				$this->Alamat->setSort("");
 				$this->Id_Poliklinik->setSort("");
 				$this->Id_Rujukan->setSort("");
 				$this->Id_JenisPasien->setSort("");
@@ -1471,11 +1478,6 @@ class ugddaftar_list extends ugddaftar
 				$this->Rawat->setSort("");
 				$this->Status->setSort("");
 				$this->Petugas->setSort("");
-				$this->No_RM->setSort("");
-				$this->Nama_Pasien->setSort("");
-				$this->Tgl_Lahir->setSort("");
-				$this->Jenis_Kelamin->setSort("");
-				$this->Alamat->setSort("");
 			}
 
 			// Reset start position
@@ -1927,6 +1929,11 @@ class ugddaftar_list extends ugddaftar
 		$this->Tgl_Daftar->setDbValue($row['Tgl_Daftar']);
 		$this->Waktu->setDbValue($row['Waktu']);
 		$this->Id_Pasien->setDbValue($row['Id_Pasien']);
+		$this->Nama_Pasien->setDbValue($row['Nama_Pasien']);
+		$this->No_RM->setDbValue($row['No_RM']);
+		$this->Tgl_Lahir->setDbValue($row['Tgl_Lahir']);
+		$this->Jenis_Kelamin->setDbValue($row['Jenis_Kelamin']);
+		$this->Alamat->setDbValue($row['Alamat']);
 		$this->Id_Poliklinik->setDbValue($row['Id_Poliklinik']);
 		$this->Id_Rujukan->setDbValue($row['Id_Rujukan']);
 		$this->Id_JenisPasien->setDbValue($row['Id_JenisPasien']);
@@ -1936,11 +1943,6 @@ class ugddaftar_list extends ugddaftar
 		$this->Rawat->setDbValue($row['Rawat']);
 		$this->Status->setDbValue($row['Status']);
 		$this->Petugas->setDbValue($row['Petugas']);
-		$this->No_RM->setDbValue($row['No_RM']);
-		$this->Nama_Pasien->setDbValue($row['Nama_Pasien']);
-		$this->Tgl_Lahir->setDbValue($row['Tgl_Lahir']);
-		$this->Jenis_Kelamin->setDbValue($row['Jenis_Kelamin']);
-		$this->Alamat->setDbValue($row['Alamat']);
 	}
 
 	// Return a row with default values
@@ -1951,6 +1953,11 @@ class ugddaftar_list extends ugddaftar
 		$row['Tgl_Daftar'] = NULL;
 		$row['Waktu'] = NULL;
 		$row['Id_Pasien'] = NULL;
+		$row['Nama_Pasien'] = NULL;
+		$row['No_RM'] = NULL;
+		$row['Tgl_Lahir'] = NULL;
+		$row['Jenis_Kelamin'] = NULL;
+		$row['Alamat'] = NULL;
 		$row['Id_Poliklinik'] = NULL;
 		$row['Id_Rujukan'] = NULL;
 		$row['Id_JenisPasien'] = NULL;
@@ -1960,11 +1967,6 @@ class ugddaftar_list extends ugddaftar
 		$row['Rawat'] = NULL;
 		$row['Status'] = NULL;
 		$row['Petugas'] = NULL;
-		$row['No_RM'] = NULL;
-		$row['Nama_Pasien'] = NULL;
-		$row['Tgl_Lahir'] = NULL;
-		$row['Jenis_Kelamin'] = NULL;
-		$row['Alamat'] = NULL;
 		return $row;
 	}
 
@@ -2016,6 +2018,11 @@ class ugddaftar_list extends ugddaftar
 		// Tgl_Daftar
 		// Waktu
 		// Id_Pasien
+		// Nama_Pasien
+		// No_RM
+		// Tgl_Lahir
+		// Jenis_Kelamin
+		// Alamat
 		// Id_Poliklinik
 		// Id_Rujukan
 		// Id_JenisPasien
@@ -2025,11 +2032,6 @@ class ugddaftar_list extends ugddaftar
 		// Rawat
 		// Status
 		// Petugas
-		// No_RM
-		// Nama_Pasien
-		// Tgl_Lahir
-		// Jenis_Kelamin
-		// Alamat
 
 		if ($this->RowType == ROWTYPE_VIEW) { // View row
 
@@ -2050,6 +2052,27 @@ class ugddaftar_list extends ugddaftar
 			// Id_Pasien
 			$this->Id_Pasien->ViewValue = $this->Id_Pasien->CurrentValue;
 			$this->Id_Pasien->ViewCustomAttributes = "";
+
+			// Nama_Pasien
+			$this->Nama_Pasien->ViewValue = $this->Nama_Pasien->CurrentValue;
+			$this->Nama_Pasien->ViewCustomAttributes = "";
+
+			// No_RM
+			$this->No_RM->ViewValue = $this->No_RM->CurrentValue;
+			$this->No_RM->ViewCustomAttributes = "";
+
+			// Tgl_Lahir
+			$this->Tgl_Lahir->ViewValue = $this->Tgl_Lahir->CurrentValue;
+			$this->Tgl_Lahir->ViewValue = FormatDateTime($this->Tgl_Lahir->ViewValue, 7);
+			$this->Tgl_Lahir->ViewCustomAttributes = "";
+
+			// Jenis_Kelamin
+			$this->Jenis_Kelamin->ViewValue = $this->Jenis_Kelamin->CurrentValue;
+			$this->Jenis_Kelamin->ViewCustomAttributes = "";
+
+			// Alamat
+			$this->Alamat->ViewValue = $this->Alamat->CurrentValue;
+			$this->Alamat->ViewCustomAttributes = "";
 
 			// Id_Poliklinik
 			$this->Id_Poliklinik->ViewValue = $this->Id_Poliklinik->CurrentValue;
@@ -2145,27 +2168,6 @@ class ugddaftar_list extends ugddaftar
 			$this->Petugas->ViewValue = $this->Petugas->CurrentValue;
 			$this->Petugas->ViewCustomAttributes = "";
 
-			// No_RM
-			$this->No_RM->ViewValue = $this->No_RM->CurrentValue;
-			$this->No_RM->ViewCustomAttributes = "";
-
-			// Nama_Pasien
-			$this->Nama_Pasien->ViewValue = $this->Nama_Pasien->CurrentValue;
-			$this->Nama_Pasien->ViewCustomAttributes = "";
-
-			// Tgl_Lahir
-			$this->Tgl_Lahir->ViewValue = $this->Tgl_Lahir->CurrentValue;
-			$this->Tgl_Lahir->ViewValue = FormatDateTime($this->Tgl_Lahir->ViewValue, 7);
-			$this->Tgl_Lahir->ViewCustomAttributes = "";
-
-			// Jenis_Kelamin
-			$this->Jenis_Kelamin->ViewValue = $this->Jenis_Kelamin->CurrentValue;
-			$this->Jenis_Kelamin->ViewCustomAttributes = "";
-
-			// Alamat
-			$this->Alamat->ViewValue = $this->Alamat->CurrentValue;
-			$this->Alamat->ViewCustomAttributes = "";
-
 			// Id_Daftar
 			$this->Id_Daftar->LinkCustomAttributes = "";
 			$this->Id_Daftar->HrefValue = "";
@@ -2189,6 +2191,39 @@ class ugddaftar_list extends ugddaftar
 			$this->Id_Pasien->TooltipValue = "";
 			if (!$this->isExport())
 				$this->Id_Pasien->ViewValue = $this->highlightValue($this->Id_Pasien);
+
+			// Nama_Pasien
+			$this->Nama_Pasien->LinkCustomAttributes = "";
+			$this->Nama_Pasien->HrefValue = "";
+			$this->Nama_Pasien->TooltipValue = "";
+			if (!$this->isExport())
+				$this->Nama_Pasien->ViewValue = $this->highlightValue($this->Nama_Pasien);
+
+			// No_RM
+			$this->No_RM->LinkCustomAttributes = "";
+			$this->No_RM->HrefValue = "";
+			$this->No_RM->TooltipValue = "";
+			if (!$this->isExport())
+				$this->No_RM->ViewValue = $this->highlightValue($this->No_RM);
+
+			// Tgl_Lahir
+			$this->Tgl_Lahir->LinkCustomAttributes = "";
+			$this->Tgl_Lahir->HrefValue = "";
+			$this->Tgl_Lahir->TooltipValue = "";
+
+			// Jenis_Kelamin
+			$this->Jenis_Kelamin->LinkCustomAttributes = "";
+			$this->Jenis_Kelamin->HrefValue = "";
+			$this->Jenis_Kelamin->TooltipValue = "";
+			if (!$this->isExport())
+				$this->Jenis_Kelamin->ViewValue = $this->highlightValue($this->Jenis_Kelamin);
+
+			// Alamat
+			$this->Alamat->LinkCustomAttributes = "";
+			$this->Alamat->HrefValue = "";
+			$this->Alamat->TooltipValue = "";
+			if (!$this->isExport())
+				$this->Alamat->ViewValue = $this->highlightValue($this->Alamat);
 
 			// Id_Poliklinik
 			$this->Id_Poliklinik->LinkCustomAttributes = "";
@@ -2236,39 +2271,6 @@ class ugddaftar_list extends ugddaftar
 			$this->Petugas->LinkCustomAttributes = "";
 			$this->Petugas->HrefValue = "";
 			$this->Petugas->TooltipValue = "";
-
-			// No_RM
-			$this->No_RM->LinkCustomAttributes = "";
-			$this->No_RM->HrefValue = "";
-			$this->No_RM->TooltipValue = "";
-			if (!$this->isExport())
-				$this->No_RM->ViewValue = $this->highlightValue($this->No_RM);
-
-			// Nama_Pasien
-			$this->Nama_Pasien->LinkCustomAttributes = "";
-			$this->Nama_Pasien->HrefValue = "";
-			$this->Nama_Pasien->TooltipValue = "";
-			if (!$this->isExport())
-				$this->Nama_Pasien->ViewValue = $this->highlightValue($this->Nama_Pasien);
-
-			// Tgl_Lahir
-			$this->Tgl_Lahir->LinkCustomAttributes = "";
-			$this->Tgl_Lahir->HrefValue = "";
-			$this->Tgl_Lahir->TooltipValue = "";
-
-			// Jenis_Kelamin
-			$this->Jenis_Kelamin->LinkCustomAttributes = "";
-			$this->Jenis_Kelamin->HrefValue = "";
-			$this->Jenis_Kelamin->TooltipValue = "";
-			if (!$this->isExport())
-				$this->Jenis_Kelamin->ViewValue = $this->highlightValue($this->Jenis_Kelamin);
-
-			// Alamat
-			$this->Alamat->LinkCustomAttributes = "";
-			$this->Alamat->HrefValue = "";
-			$this->Alamat->TooltipValue = "";
-			if (!$this->isExport())
-				$this->Alamat->ViewValue = $this->highlightValue($this->Alamat);
 		}
 
 		// Call Row Rendered event

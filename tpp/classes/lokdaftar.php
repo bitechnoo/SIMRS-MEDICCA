@@ -288,7 +288,7 @@ class lokdaftar extends DbTable
 	public function getSqlWhere() // Where
 	{
 		$where = ($this->SqlWhere <> "") ? $this->SqlWhere : "";
-		$this->TableFilter = "`Rawat`='RAWAT JALAN POLIKLINIK'";
+		$this->TableFilter = "";
 		AddFilter($where, $this->TableFilter);
 		return $where;
 	}
