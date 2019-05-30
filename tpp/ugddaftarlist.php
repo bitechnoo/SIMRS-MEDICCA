@@ -257,6 +257,51 @@ $ugddaftar_list->ListOptions->render("header", "left");
 		</div></div></th>
 	<?php } ?>
 <?php } ?>
+<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
+	<?php if ($ugddaftar->sortUrl($ugddaftar->Nama_Pasien) == "") { ?>
+		<th data-name="Nama_Pasien" class="<?php echo $ugddaftar->Nama_Pasien->headerCellClass() ?>"><div id="elh_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien"><div class="ew-table-header-caption"><?php echo $ugddaftar->Nama_Pasien->caption() ?></div></div></th>
+	<?php } else { ?>
+		<th data-name="Nama_Pasien" class="<?php echo $ugddaftar->Nama_Pasien->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->Nama_Pasien) ?>',2);"><div id="elh_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien">
+			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->Nama_Pasien->caption() ?><?php echo $Language->phrase("SrchLegend") ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->Nama_Pasien->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->Nama_Pasien->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
+		</div></div></th>
+	<?php } ?>
+<?php } ?>
+<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
+	<?php if ($ugddaftar->sortUrl($ugddaftar->No_RM) == "") { ?>
+		<th data-name="No_RM" class="<?php echo $ugddaftar->No_RM->headerCellClass() ?>"><div id="elh_ugddaftar_No_RM" class="ugddaftar_No_RM"><div class="ew-table-header-caption"><?php echo $ugddaftar->No_RM->caption() ?></div></div></th>
+	<?php } else { ?>
+		<th data-name="No_RM" class="<?php echo $ugddaftar->No_RM->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->No_RM) ?>',2);"><div id="elh_ugddaftar_No_RM" class="ugddaftar_No_RM">
+			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->No_RM->caption() ?><?php echo $Language->phrase("SrchLegend") ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->No_RM->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->No_RM->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
+		</div></div></th>
+	<?php } ?>
+<?php } ?>
+<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
+	<?php if ($ugddaftar->sortUrl($ugddaftar->Tgl_Lahir) == "") { ?>
+		<th data-name="Tgl_Lahir" class="<?php echo $ugddaftar->Tgl_Lahir->headerCellClass() ?>"><div id="elh_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir"><div class="ew-table-header-caption"><?php echo $ugddaftar->Tgl_Lahir->caption() ?></div></div></th>
+	<?php } else { ?>
+		<th data-name="Tgl_Lahir" class="<?php echo $ugddaftar->Tgl_Lahir->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->Tgl_Lahir) ?>',2);"><div id="elh_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir">
+			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->Tgl_Lahir->caption() ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->Tgl_Lahir->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->Tgl_Lahir->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
+		</div></div></th>
+	<?php } ?>
+<?php } ?>
+<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
+	<?php if ($ugddaftar->sortUrl($ugddaftar->Jenis_Kelamin) == "") { ?>
+		<th data-name="Jenis_Kelamin" class="<?php echo $ugddaftar->Jenis_Kelamin->headerCellClass() ?>"><div id="elh_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin"><div class="ew-table-header-caption"><?php echo $ugddaftar->Jenis_Kelamin->caption() ?></div></div></th>
+	<?php } else { ?>
+		<th data-name="Jenis_Kelamin" class="<?php echo $ugddaftar->Jenis_Kelamin->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->Jenis_Kelamin) ?>',2);"><div id="elh_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin">
+			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->Jenis_Kelamin->caption() ?><?php echo $Language->phrase("SrchLegend") ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->Jenis_Kelamin->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->Jenis_Kelamin->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
+		</div></div></th>
+	<?php } ?>
+<?php } ?>
+<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
+	<?php if ($ugddaftar->sortUrl($ugddaftar->Alamat) == "") { ?>
+		<th data-name="Alamat" class="<?php echo $ugddaftar->Alamat->headerCellClass() ?>"><div id="elh_ugddaftar_Alamat" class="ugddaftar_Alamat"><div class="ew-table-header-caption"><?php echo $ugddaftar->Alamat->caption() ?></div></div></th>
+	<?php } else { ?>
+		<th data-name="Alamat" class="<?php echo $ugddaftar->Alamat->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->Alamat) ?>',2);"><div id="elh_ugddaftar_Alamat" class="ugddaftar_Alamat">
+			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->Alamat->caption() ?><?php echo $Language->phrase("SrchLegend") ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->Alamat->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->Alamat->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
+		</div></div></th>
+	<?php } ?>
+<?php } ?>
 <?php if ($ugddaftar->Id_Poliklinik->Visible) { // Id_Poliklinik ?>
 	<?php if ($ugddaftar->sortUrl($ugddaftar->Id_Poliklinik) == "") { ?>
 		<th data-name="Id_Poliklinik" class="<?php echo $ugddaftar->Id_Poliklinik->headerCellClass() ?>"><div id="elh_ugddaftar_Id_Poliklinik" class="ugddaftar_Id_Poliklinik"><div class="ew-table-header-caption"><?php echo $ugddaftar->Id_Poliklinik->caption() ?></div></div></th>
@@ -335,51 +380,6 @@ $ugddaftar_list->ListOptions->render("header", "left");
 	<?php } else { ?>
 		<th data-name="Petugas" class="<?php echo $ugddaftar->Petugas->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->Petugas) ?>',2);"><div id="elh_ugddaftar_Petugas" class="ugddaftar_Petugas">
 			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->Petugas->caption() ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->Petugas->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->Petugas->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
-		</div></div></th>
-	<?php } ?>
-<?php } ?>
-<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
-	<?php if ($ugddaftar->sortUrl($ugddaftar->No_RM) == "") { ?>
-		<th data-name="No_RM" class="<?php echo $ugddaftar->No_RM->headerCellClass() ?>"><div id="elh_ugddaftar_No_RM" class="ugddaftar_No_RM"><div class="ew-table-header-caption"><?php echo $ugddaftar->No_RM->caption() ?></div></div></th>
-	<?php } else { ?>
-		<th data-name="No_RM" class="<?php echo $ugddaftar->No_RM->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->No_RM) ?>',2);"><div id="elh_ugddaftar_No_RM" class="ugddaftar_No_RM">
-			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->No_RM->caption() ?><?php echo $Language->phrase("SrchLegend") ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->No_RM->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->No_RM->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
-		</div></div></th>
-	<?php } ?>
-<?php } ?>
-<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
-	<?php if ($ugddaftar->sortUrl($ugddaftar->Nama_Pasien) == "") { ?>
-		<th data-name="Nama_Pasien" class="<?php echo $ugddaftar->Nama_Pasien->headerCellClass() ?>"><div id="elh_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien"><div class="ew-table-header-caption"><?php echo $ugddaftar->Nama_Pasien->caption() ?></div></div></th>
-	<?php } else { ?>
-		<th data-name="Nama_Pasien" class="<?php echo $ugddaftar->Nama_Pasien->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->Nama_Pasien) ?>',2);"><div id="elh_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien">
-			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->Nama_Pasien->caption() ?><?php echo $Language->phrase("SrchLegend") ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->Nama_Pasien->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->Nama_Pasien->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
-		</div></div></th>
-	<?php } ?>
-<?php } ?>
-<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
-	<?php if ($ugddaftar->sortUrl($ugddaftar->Tgl_Lahir) == "") { ?>
-		<th data-name="Tgl_Lahir" class="<?php echo $ugddaftar->Tgl_Lahir->headerCellClass() ?>"><div id="elh_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir"><div class="ew-table-header-caption"><?php echo $ugddaftar->Tgl_Lahir->caption() ?></div></div></th>
-	<?php } else { ?>
-		<th data-name="Tgl_Lahir" class="<?php echo $ugddaftar->Tgl_Lahir->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->Tgl_Lahir) ?>',2);"><div id="elh_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir">
-			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->Tgl_Lahir->caption() ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->Tgl_Lahir->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->Tgl_Lahir->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
-		</div></div></th>
-	<?php } ?>
-<?php } ?>
-<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
-	<?php if ($ugddaftar->sortUrl($ugddaftar->Jenis_Kelamin) == "") { ?>
-		<th data-name="Jenis_Kelamin" class="<?php echo $ugddaftar->Jenis_Kelamin->headerCellClass() ?>"><div id="elh_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin"><div class="ew-table-header-caption"><?php echo $ugddaftar->Jenis_Kelamin->caption() ?></div></div></th>
-	<?php } else { ?>
-		<th data-name="Jenis_Kelamin" class="<?php echo $ugddaftar->Jenis_Kelamin->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->Jenis_Kelamin) ?>',2);"><div id="elh_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin">
-			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->Jenis_Kelamin->caption() ?><?php echo $Language->phrase("SrchLegend") ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->Jenis_Kelamin->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->Jenis_Kelamin->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
-		</div></div></th>
-	<?php } ?>
-<?php } ?>
-<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
-	<?php if ($ugddaftar->sortUrl($ugddaftar->Alamat) == "") { ?>
-		<th data-name="Alamat" class="<?php echo $ugddaftar->Alamat->headerCellClass() ?>"><div id="elh_ugddaftar_Alamat" class="ugddaftar_Alamat"><div class="ew-table-header-caption"><?php echo $ugddaftar->Alamat->caption() ?></div></div></th>
-	<?php } else { ?>
-		<th data-name="Alamat" class="<?php echo $ugddaftar->Alamat->headerCellClass() ?>"><div class="ew-pointer" onclick="ew.sort(event,'<?php echo $ugddaftar->SortUrl($ugddaftar->Alamat) ?>',2);"><div id="elh_ugddaftar_Alamat" class="ugddaftar_Alamat">
-			<div class="ew-table-header-btn"><span class="ew-table-header-caption"><?php echo $ugddaftar->Alamat->caption() ?><?php echo $Language->phrase("SrchLegend") ?></span><span class="ew-table-header-sort"><?php if ($ugddaftar->Alamat->getSort() == "ASC") { ?><i class="fa fa-sort-up"></i><?php } elseif ($ugddaftar->Alamat->getSort() == "DESC") { ?><i class="fa fa-sort-down"></i><?php } ?></span></div>
 		</div></div></th>
 	<?php } ?>
 <?php } ?>
@@ -480,6 +480,46 @@ $ugddaftar_list->ListOptions->render("body", "left", $ugddaftar_list->RowCnt);
 </span>
 </td>
 	<?php } ?>
+	<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
+		<td data-name="Nama_Pasien"<?php echo $ugddaftar->Nama_Pasien->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien">
+<span<?php echo $ugddaftar->Nama_Pasien->viewAttributes() ?>>
+<?php echo $ugddaftar->Nama_Pasien->getViewValue() ?></span>
+</span>
+</td>
+	<?php } ?>
+	<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
+		<td data-name="No_RM"<?php echo $ugddaftar->No_RM->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_No_RM" class="ugddaftar_No_RM">
+<span<?php echo $ugddaftar->No_RM->viewAttributes() ?>>
+<?php echo $ugddaftar->No_RM->getViewValue() ?></span>
+</span>
+</td>
+	<?php } ?>
+	<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
+		<td data-name="Tgl_Lahir"<?php echo $ugddaftar->Tgl_Lahir->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir">
+<span<?php echo $ugddaftar->Tgl_Lahir->viewAttributes() ?>>
+<?php echo $ugddaftar->Tgl_Lahir->getViewValue() ?></span>
+</span>
+</td>
+	<?php } ?>
+	<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
+		<td data-name="Jenis_Kelamin"<?php echo $ugddaftar->Jenis_Kelamin->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin">
+<span<?php echo $ugddaftar->Jenis_Kelamin->viewAttributes() ?>>
+<?php echo $ugddaftar->Jenis_Kelamin->getViewValue() ?></span>
+</span>
+</td>
+	<?php } ?>
+	<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
+		<td data-name="Alamat"<?php echo $ugddaftar->Alamat->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Alamat" class="ugddaftar_Alamat">
+<span<?php echo $ugddaftar->Alamat->viewAttributes() ?>>
+<?php echo $ugddaftar->Alamat->getViewValue() ?></span>
+</span>
+</td>
+	<?php } ?>
 	<?php if ($ugddaftar->Id_Poliklinik->Visible) { // Id_Poliklinik ?>
 		<td data-name="Id_Poliklinik"<?php echo $ugddaftar->Id_Poliklinik->cellAttributes() ?>>
 <span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Id_Poliklinik" class="ugddaftar_Id_Poliklinik">
@@ -549,46 +589,6 @@ $ugddaftar_list->ListOptions->render("body", "left", $ugddaftar_list->RowCnt);
 <span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Petugas" class="ugddaftar_Petugas">
 <span<?php echo $ugddaftar->Petugas->viewAttributes() ?>>
 <?php echo $ugddaftar->Petugas->getViewValue() ?></span>
-</span>
-</td>
-	<?php } ?>
-	<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
-		<td data-name="No_RM"<?php echo $ugddaftar->No_RM->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_No_RM" class="ugddaftar_No_RM">
-<span<?php echo $ugddaftar->No_RM->viewAttributes() ?>>
-<?php echo $ugddaftar->No_RM->getViewValue() ?></span>
-</span>
-</td>
-	<?php } ?>
-	<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
-		<td data-name="Nama_Pasien"<?php echo $ugddaftar->Nama_Pasien->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien">
-<span<?php echo $ugddaftar->Nama_Pasien->viewAttributes() ?>>
-<?php echo $ugddaftar->Nama_Pasien->getViewValue() ?></span>
-</span>
-</td>
-	<?php } ?>
-	<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
-		<td data-name="Tgl_Lahir"<?php echo $ugddaftar->Tgl_Lahir->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir">
-<span<?php echo $ugddaftar->Tgl_Lahir->viewAttributes() ?>>
-<?php echo $ugddaftar->Tgl_Lahir->getViewValue() ?></span>
-</span>
-</td>
-	<?php } ?>
-	<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
-		<td data-name="Jenis_Kelamin"<?php echo $ugddaftar->Jenis_Kelamin->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin">
-<span<?php echo $ugddaftar->Jenis_Kelamin->viewAttributes() ?>>
-<?php echo $ugddaftar->Jenis_Kelamin->getViewValue() ?></span>
-</span>
-</td>
-	<?php } ?>
-	<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
-		<td data-name="Alamat"<?php echo $ugddaftar->Alamat->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_list->RowCnt ?>_ugddaftar_Alamat" class="ugddaftar_Alamat">
-<span<?php echo $ugddaftar->Alamat->viewAttributes() ?>>
-<?php echo $ugddaftar->Alamat->getViewValue() ?></span>
 </span>
 </td>
 	<?php } ?>

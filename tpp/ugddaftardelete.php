@@ -96,6 +96,21 @@ $ugddaftar_delete->showMessage();
 <?php if ($ugddaftar->Id_Pasien->Visible) { // Id_Pasien ?>
 		<th class="<?php echo $ugddaftar->Id_Pasien->headerCellClass() ?>"><span id="elh_ugddaftar_Id_Pasien" class="ugddaftar_Id_Pasien"><?php echo $ugddaftar->Id_Pasien->caption() ?></span></th>
 <?php } ?>
+<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
+		<th class="<?php echo $ugddaftar->Nama_Pasien->headerCellClass() ?>"><span id="elh_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien"><?php echo $ugddaftar->Nama_Pasien->caption() ?></span></th>
+<?php } ?>
+<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
+		<th class="<?php echo $ugddaftar->No_RM->headerCellClass() ?>"><span id="elh_ugddaftar_No_RM" class="ugddaftar_No_RM"><?php echo $ugddaftar->No_RM->caption() ?></span></th>
+<?php } ?>
+<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
+		<th class="<?php echo $ugddaftar->Tgl_Lahir->headerCellClass() ?>"><span id="elh_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir"><?php echo $ugddaftar->Tgl_Lahir->caption() ?></span></th>
+<?php } ?>
+<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
+		<th class="<?php echo $ugddaftar->Jenis_Kelamin->headerCellClass() ?>"><span id="elh_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin"><?php echo $ugddaftar->Jenis_Kelamin->caption() ?></span></th>
+<?php } ?>
+<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
+		<th class="<?php echo $ugddaftar->Alamat->headerCellClass() ?>"><span id="elh_ugddaftar_Alamat" class="ugddaftar_Alamat"><?php echo $ugddaftar->Alamat->caption() ?></span></th>
+<?php } ?>
 <?php if ($ugddaftar->Id_Poliklinik->Visible) { // Id_Poliklinik ?>
 		<th class="<?php echo $ugddaftar->Id_Poliklinik->headerCellClass() ?>"><span id="elh_ugddaftar_Id_Poliklinik" class="ugddaftar_Id_Poliklinik"><?php echo $ugddaftar->Id_Poliklinik->caption() ?></span></th>
 <?php } ?>
@@ -122,21 +137,6 @@ $ugddaftar_delete->showMessage();
 <?php } ?>
 <?php if ($ugddaftar->Petugas->Visible) { // Petugas ?>
 		<th class="<?php echo $ugddaftar->Petugas->headerCellClass() ?>"><span id="elh_ugddaftar_Petugas" class="ugddaftar_Petugas"><?php echo $ugddaftar->Petugas->caption() ?></span></th>
-<?php } ?>
-<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
-		<th class="<?php echo $ugddaftar->No_RM->headerCellClass() ?>"><span id="elh_ugddaftar_No_RM" class="ugddaftar_No_RM"><?php echo $ugddaftar->No_RM->caption() ?></span></th>
-<?php } ?>
-<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
-		<th class="<?php echo $ugddaftar->Nama_Pasien->headerCellClass() ?>"><span id="elh_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien"><?php echo $ugddaftar->Nama_Pasien->caption() ?></span></th>
-<?php } ?>
-<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
-		<th class="<?php echo $ugddaftar->Tgl_Lahir->headerCellClass() ?>"><span id="elh_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir"><?php echo $ugddaftar->Tgl_Lahir->caption() ?></span></th>
-<?php } ?>
-<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
-		<th class="<?php echo $ugddaftar->Jenis_Kelamin->headerCellClass() ?>"><span id="elh_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin"><?php echo $ugddaftar->Jenis_Kelamin->caption() ?></span></th>
-<?php } ?>
-<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
-		<th class="<?php echo $ugddaftar->Alamat->headerCellClass() ?>"><span id="elh_ugddaftar_Alamat" class="ugddaftar_Alamat"><?php echo $ugddaftar->Alamat->caption() ?></span></th>
 <?php } ?>
 	</tr>
 	</thead>
@@ -188,6 +188,46 @@ while (!$ugddaftar_delete->Recordset->EOF) {
 <span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Id_Pasien" class="ugddaftar_Id_Pasien">
 <span<?php echo $ugddaftar->Id_Pasien->viewAttributes() ?>>
 <?php echo $ugddaftar->Id_Pasien->getViewValue() ?></span>
+</span>
+</td>
+<?php } ?>
+<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
+		<td<?php echo $ugddaftar->Nama_Pasien->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien">
+<span<?php echo $ugddaftar->Nama_Pasien->viewAttributes() ?>>
+<?php echo $ugddaftar->Nama_Pasien->getViewValue() ?></span>
+</span>
+</td>
+<?php } ?>
+<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
+		<td<?php echo $ugddaftar->No_RM->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_No_RM" class="ugddaftar_No_RM">
+<span<?php echo $ugddaftar->No_RM->viewAttributes() ?>>
+<?php echo $ugddaftar->No_RM->getViewValue() ?></span>
+</span>
+</td>
+<?php } ?>
+<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
+		<td<?php echo $ugddaftar->Tgl_Lahir->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir">
+<span<?php echo $ugddaftar->Tgl_Lahir->viewAttributes() ?>>
+<?php echo $ugddaftar->Tgl_Lahir->getViewValue() ?></span>
+</span>
+</td>
+<?php } ?>
+<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
+		<td<?php echo $ugddaftar->Jenis_Kelamin->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin">
+<span<?php echo $ugddaftar->Jenis_Kelamin->viewAttributes() ?>>
+<?php echo $ugddaftar->Jenis_Kelamin->getViewValue() ?></span>
+</span>
+</td>
+<?php } ?>
+<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
+		<td<?php echo $ugddaftar->Alamat->cellAttributes() ?>>
+<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Alamat" class="ugddaftar_Alamat">
+<span<?php echo $ugddaftar->Alamat->viewAttributes() ?>>
+<?php echo $ugddaftar->Alamat->getViewValue() ?></span>
 </span>
 </td>
 <?php } ?>
@@ -260,46 +300,6 @@ while (!$ugddaftar_delete->Recordset->EOF) {
 <span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Petugas" class="ugddaftar_Petugas">
 <span<?php echo $ugddaftar->Petugas->viewAttributes() ?>>
 <?php echo $ugddaftar->Petugas->getViewValue() ?></span>
-</span>
-</td>
-<?php } ?>
-<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
-		<td<?php echo $ugddaftar->No_RM->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_No_RM" class="ugddaftar_No_RM">
-<span<?php echo $ugddaftar->No_RM->viewAttributes() ?>>
-<?php echo $ugddaftar->No_RM->getViewValue() ?></span>
-</span>
-</td>
-<?php } ?>
-<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
-		<td<?php echo $ugddaftar->Nama_Pasien->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Nama_Pasien" class="ugddaftar_Nama_Pasien">
-<span<?php echo $ugddaftar->Nama_Pasien->viewAttributes() ?>>
-<?php echo $ugddaftar->Nama_Pasien->getViewValue() ?></span>
-</span>
-</td>
-<?php } ?>
-<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
-		<td<?php echo $ugddaftar->Tgl_Lahir->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Tgl_Lahir" class="ugddaftar_Tgl_Lahir">
-<span<?php echo $ugddaftar->Tgl_Lahir->viewAttributes() ?>>
-<?php echo $ugddaftar->Tgl_Lahir->getViewValue() ?></span>
-</span>
-</td>
-<?php } ?>
-<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
-		<td<?php echo $ugddaftar->Jenis_Kelamin->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Jenis_Kelamin" class="ugddaftar_Jenis_Kelamin">
-<span<?php echo $ugddaftar->Jenis_Kelamin->viewAttributes() ?>>
-<?php echo $ugddaftar->Jenis_Kelamin->getViewValue() ?></span>
-</span>
-</td>
-<?php } ?>
-<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
-		<td<?php echo $ugddaftar->Alamat->cellAttributes() ?>>
-<span id="el<?php echo $ugddaftar_delete->RowCnt ?>_ugddaftar_Alamat" class="ugddaftar_Alamat">
-<span<?php echo $ugddaftar->Alamat->viewAttributes() ?>>
-<?php echo $ugddaftar->Alamat->getViewValue() ?></span>
 </span>
 </td>
 <?php } ?>

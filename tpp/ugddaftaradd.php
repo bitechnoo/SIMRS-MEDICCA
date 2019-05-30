@@ -80,6 +80,31 @@ fugddaftaradd.validate = function() {
 			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
 				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Id_Pasien->caption(), $ugddaftar->Id_Pasien->RequiredErrorMessage)) ?>");
 		<?php } ?>
+		<?php if ($ugddaftar_add->Nama_Pasien->Required) { ?>
+			elm = this.getElements("x" + infix + "_Nama_Pasien");
+			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
+				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Nama_Pasien->caption(), $ugddaftar->Nama_Pasien->RequiredErrorMessage)) ?>");
+		<?php } ?>
+		<?php if ($ugddaftar_add->No_RM->Required) { ?>
+			elm = this.getElements("x" + infix + "_No_RM");
+			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
+				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->No_RM->caption(), $ugddaftar->No_RM->RequiredErrorMessage)) ?>");
+		<?php } ?>
+		<?php if ($ugddaftar_add->Tgl_Lahir->Required) { ?>
+			elm = this.getElements("x" + infix + "_Tgl_Lahir");
+			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
+				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Tgl_Lahir->caption(), $ugddaftar->Tgl_Lahir->RequiredErrorMessage)) ?>");
+		<?php } ?>
+		<?php if ($ugddaftar_add->Jenis_Kelamin->Required) { ?>
+			elm = this.getElements("x" + infix + "_Jenis_Kelamin");
+			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
+				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Jenis_Kelamin->caption(), $ugddaftar->Jenis_Kelamin->RequiredErrorMessage)) ?>");
+		<?php } ?>
+		<?php if ($ugddaftar_add->Alamat->Required) { ?>
+			elm = this.getElements("x" + infix + "_Alamat");
+			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
+				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Alamat->caption(), $ugddaftar->Alamat->RequiredErrorMessage)) ?>");
+		<?php } ?>
 		<?php if ($ugddaftar_add->Id_Poliklinik->Required) { ?>
 			elm = this.getElements("x" + infix + "_Id_Poliklinik");
 			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
@@ -127,31 +152,6 @@ fugddaftaradd.validate = function() {
 			elm = this.getElements("x" + infix + "_Petugas");
 			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
 				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Petugas->caption(), $ugddaftar->Petugas->RequiredErrorMessage)) ?>");
-		<?php } ?>
-		<?php if ($ugddaftar_add->No_RM->Required) { ?>
-			elm = this.getElements("x" + infix + "_No_RM");
-			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
-				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->No_RM->caption(), $ugddaftar->No_RM->RequiredErrorMessage)) ?>");
-		<?php } ?>
-		<?php if ($ugddaftar_add->Nama_Pasien->Required) { ?>
-			elm = this.getElements("x" + infix + "_Nama_Pasien");
-			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
-				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Nama_Pasien->caption(), $ugddaftar->Nama_Pasien->RequiredErrorMessage)) ?>");
-		<?php } ?>
-		<?php if ($ugddaftar_add->Tgl_Lahir->Required) { ?>
-			elm = this.getElements("x" + infix + "_Tgl_Lahir");
-			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
-				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Tgl_Lahir->caption(), $ugddaftar->Tgl_Lahir->RequiredErrorMessage)) ?>");
-		<?php } ?>
-		<?php if ($ugddaftar_add->Jenis_Kelamin->Required) { ?>
-			elm = this.getElements("x" + infix + "_Jenis_Kelamin");
-			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
-				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Jenis_Kelamin->caption(), $ugddaftar->Jenis_Kelamin->RequiredErrorMessage)) ?>");
-		<?php } ?>
-		<?php if ($ugddaftar_add->Alamat->Required) { ?>
-			elm = this.getElements("x" + infix + "_Alamat");
-			if (elm && !ew.isHidden(elm) && !ew.hasValue(elm))
-				return this.onError(elm, "<?php echo JsEncode(str_replace("%s", $ugddaftar->Alamat->caption(), $ugddaftar->Alamat->RequiredErrorMessage)) ?>");
 		<?php } ?>
 
 			// Fire Form_CustomValidate event
@@ -214,31 +214,6 @@ $ugddaftar_add->showMessage();
 <div class="ew-add-div d-none"><!-- page* -->
 <?php } else { ?>
 <table id="tbl_ugddaftaradd" class="table table-striped table-sm ew-desktop-table d-none"><!-- table* -->
-<?php } ?>
-<?php if ($ugddaftar->Id_Daftar->Visible) { // Id_Daftar ?>
-<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
-	<div id="r_Id_Daftar" class="form-group row">
-		<label id="elh_ugddaftar_Id_Daftar" for="x_Id_Daftar" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_Id_Daftar" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Id_Daftar->caption() ?><?php echo ($ugddaftar->Id_Daftar->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
-		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->Id_Daftar->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Id_Daftar" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Id_Daftar">
-<input type="text" data-table="ugddaftar" data-field="x_Id_Daftar" name="x_Id_Daftar" id="x_Id_Daftar" size="30" maxlength="50" value="<?php echo $ugddaftar->Id_Daftar->EditValue ?>"<?php echo $ugddaftar->Id_Daftar->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->Id_Daftar->CustomMsg ?></div></div>
-	</div>
-<?php } else { ?>
-	<tr id="r_Id_Daftar">
-		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_Id_Daftar"><script id="tpc_ugddaftar_Id_Daftar" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Id_Daftar->caption() ?><?php echo ($ugddaftar->Id_Daftar->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
-		<td<?php echo $ugddaftar->Id_Daftar->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Id_Daftar" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Id_Daftar">
-<input type="text" data-table="ugddaftar" data-field="x_Id_Daftar" name="x_Id_Daftar" id="x_Id_Daftar" size="30" maxlength="50" value="<?php echo $ugddaftar->Id_Daftar->EditValue ?>"<?php echo $ugddaftar->Id_Daftar->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->Id_Daftar->CustomMsg ?></td>
-	</tr>
-<?php } ?>
 <?php } ?>
 <?php if ($ugddaftar->Tgl_Daftar->Visible) { // Tgl_Daftar ?>
 <?php if ($ugddaftar_add->IsMobileOrModal) { ?>
@@ -322,6 +297,131 @@ ew.createDateTimePicker("fugddaftaradd", "x_Tgl_Daftar", {"ignoreReadonly":true,
 </span>
 </script>
 <?php echo $ugddaftar->Id_Pasien->CustomMsg ?></td>
+	</tr>
+<?php } ?>
+<?php } ?>
+<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
+<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
+	<div id="r_Nama_Pasien" class="form-group row">
+		<label id="elh_ugddaftar_Nama_Pasien" for="x_Nama_Pasien" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_Nama_Pasien" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Nama_Pasien->caption() ?><?php echo ($ugddaftar->Nama_Pasien->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
+		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->Nama_Pasien->cellAttributes() ?>>
+<script id="tpx_ugddaftar_Nama_Pasien" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_Nama_Pasien">
+<input type="text" data-table="ugddaftar" data-field="x_Nama_Pasien" name="x_Nama_Pasien" id="x_Nama_Pasien" size="22" maxlength="50" value="<?php echo $ugddaftar->Nama_Pasien->EditValue ?>"<?php echo $ugddaftar->Nama_Pasien->editAttributes() ?>>
+</span>
+</script>
+<?php echo $ugddaftar->Nama_Pasien->CustomMsg ?></div></div>
+	</div>
+<?php } else { ?>
+	<tr id="r_Nama_Pasien">
+		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_Nama_Pasien"><script id="tpc_ugddaftar_Nama_Pasien" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Nama_Pasien->caption() ?><?php echo ($ugddaftar->Nama_Pasien->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
+		<td<?php echo $ugddaftar->Nama_Pasien->cellAttributes() ?>>
+<script id="tpx_ugddaftar_Nama_Pasien" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_Nama_Pasien">
+<input type="text" data-table="ugddaftar" data-field="x_Nama_Pasien" name="x_Nama_Pasien" id="x_Nama_Pasien" size="22" maxlength="50" value="<?php echo $ugddaftar->Nama_Pasien->EditValue ?>"<?php echo $ugddaftar->Nama_Pasien->editAttributes() ?>>
+</span>
+</script>
+<?php echo $ugddaftar->Nama_Pasien->CustomMsg ?></td>
+	</tr>
+<?php } ?>
+<?php } ?>
+<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
+<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
+	<div id="r_No_RM" class="form-group row">
+		<label id="elh_ugddaftar_No_RM" for="x_No_RM" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_No_RM" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->No_RM->caption() ?><?php echo ($ugddaftar->No_RM->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
+		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->No_RM->cellAttributes() ?>>
+<script id="tpx_ugddaftar_No_RM" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_No_RM">
+<input type="text" data-table="ugddaftar" data-field="x_No_RM" name="x_No_RM" id="x_No_RM" size="15" maxlength="50" value="<?php echo $ugddaftar->No_RM->EditValue ?>"<?php echo $ugddaftar->No_RM->editAttributes() ?>>
+</span>
+</script>
+<?php echo $ugddaftar->No_RM->CustomMsg ?></div></div>
+	</div>
+<?php } else { ?>
+	<tr id="r_No_RM">
+		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_No_RM"><script id="tpc_ugddaftar_No_RM" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->No_RM->caption() ?><?php echo ($ugddaftar->No_RM->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
+		<td<?php echo $ugddaftar->No_RM->cellAttributes() ?>>
+<script id="tpx_ugddaftar_No_RM" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_No_RM">
+<input type="text" data-table="ugddaftar" data-field="x_No_RM" name="x_No_RM" id="x_No_RM" size="15" maxlength="50" value="<?php echo $ugddaftar->No_RM->EditValue ?>"<?php echo $ugddaftar->No_RM->editAttributes() ?>>
+</span>
+</script>
+<?php echo $ugddaftar->No_RM->CustomMsg ?></td>
+	</tr>
+<?php } ?>
+<?php } ?>
+<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
+<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
+	<div id="r_Tgl_Lahir" class="form-group row">
+		<label id="elh_ugddaftar_Tgl_Lahir" for="x_Tgl_Lahir" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_Tgl_Lahir" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Tgl_Lahir->caption() ?><?php echo ($ugddaftar->Tgl_Lahir->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
+		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->Tgl_Lahir->cellAttributes() ?>>
+<script id="tpx_ugddaftar_Tgl_Lahir" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_Tgl_Lahir">
+<input type="text" data-table="ugddaftar" data-field="x_Tgl_Lahir" data-format="7" name="x_Tgl_Lahir" id="x_Tgl_Lahir" size="15" value="<?php echo $ugddaftar->Tgl_Lahir->EditValue ?>"<?php echo $ugddaftar->Tgl_Lahir->editAttributes() ?>>
+</span>
+</script>
+<?php echo $ugddaftar->Tgl_Lahir->CustomMsg ?></div></div>
+	</div>
+<?php } else { ?>
+	<tr id="r_Tgl_Lahir">
+		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_Tgl_Lahir"><script id="tpc_ugddaftar_Tgl_Lahir" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Tgl_Lahir->caption() ?><?php echo ($ugddaftar->Tgl_Lahir->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
+		<td<?php echo $ugddaftar->Tgl_Lahir->cellAttributes() ?>>
+<script id="tpx_ugddaftar_Tgl_Lahir" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_Tgl_Lahir">
+<input type="text" data-table="ugddaftar" data-field="x_Tgl_Lahir" data-format="7" name="x_Tgl_Lahir" id="x_Tgl_Lahir" size="15" value="<?php echo $ugddaftar->Tgl_Lahir->EditValue ?>"<?php echo $ugddaftar->Tgl_Lahir->editAttributes() ?>>
+</span>
+</script>
+<?php echo $ugddaftar->Tgl_Lahir->CustomMsg ?></td>
+	</tr>
+<?php } ?>
+<?php } ?>
+<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
+<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
+	<div id="r_Jenis_Kelamin" class="form-group row">
+		<label id="elh_ugddaftar_Jenis_Kelamin" for="x_Jenis_Kelamin" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_Jenis_Kelamin" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Jenis_Kelamin->caption() ?><?php echo ($ugddaftar->Jenis_Kelamin->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
+		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->Jenis_Kelamin->cellAttributes() ?>>
+<script id="tpx_ugddaftar_Jenis_Kelamin" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_Jenis_Kelamin">
+<input type="text" data-table="ugddaftar" data-field="x_Jenis_Kelamin" name="x_Jenis_Kelamin" id="x_Jenis_Kelamin" size="15" maxlength="50" value="<?php echo $ugddaftar->Jenis_Kelamin->EditValue ?>"<?php echo $ugddaftar->Jenis_Kelamin->editAttributes() ?>>
+</span>
+</script>
+<?php echo $ugddaftar->Jenis_Kelamin->CustomMsg ?></div></div>
+	</div>
+<?php } else { ?>
+	<tr id="r_Jenis_Kelamin">
+		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_Jenis_Kelamin"><script id="tpc_ugddaftar_Jenis_Kelamin" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Jenis_Kelamin->caption() ?><?php echo ($ugddaftar->Jenis_Kelamin->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
+		<td<?php echo $ugddaftar->Jenis_Kelamin->cellAttributes() ?>>
+<script id="tpx_ugddaftar_Jenis_Kelamin" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_Jenis_Kelamin">
+<input type="text" data-table="ugddaftar" data-field="x_Jenis_Kelamin" name="x_Jenis_Kelamin" id="x_Jenis_Kelamin" size="15" maxlength="50" value="<?php echo $ugddaftar->Jenis_Kelamin->EditValue ?>"<?php echo $ugddaftar->Jenis_Kelamin->editAttributes() ?>>
+</span>
+</script>
+<?php echo $ugddaftar->Jenis_Kelamin->CustomMsg ?></td>
+	</tr>
+<?php } ?>
+<?php } ?>
+<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
+<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
+	<div id="r_Alamat" class="form-group row">
+		<label id="elh_ugddaftar_Alamat" for="x_Alamat" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_Alamat" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Alamat->caption() ?><?php echo ($ugddaftar->Alamat->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
+		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->Alamat->cellAttributes() ?>>
+<script id="tpx_ugddaftar_Alamat" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_Alamat">
+<textarea data-table="ugddaftar" data-field="x_Alamat" name="x_Alamat" id="x_Alamat" cols="35" rows="2"<?php echo $ugddaftar->Alamat->editAttributes() ?>><?php echo $ugddaftar->Alamat->EditValue ?></textarea>
+</span>
+</script>
+<?php echo $ugddaftar->Alamat->CustomMsg ?></div></div>
+	</div>
+<?php } else { ?>
+	<tr id="r_Alamat">
+		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_Alamat"><script id="tpc_ugddaftar_Alamat" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Alamat->caption() ?><?php echo ($ugddaftar->Alamat->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
+		<td<?php echo $ugddaftar->Alamat->cellAttributes() ?>>
+<script id="tpx_ugddaftar_Alamat" class="ugddaftaradd" type="text/html">
+<span id="el_ugddaftar_Alamat">
+<textarea data-table="ugddaftar" data-field="x_Alamat" name="x_Alamat" id="x_Alamat" cols="35" rows="2"<?php echo $ugddaftar->Alamat->editAttributes() ?>><?php echo $ugddaftar->Alamat->EditValue ?></textarea>
+</span>
+</script>
+<?php echo $ugddaftar->Alamat->CustomMsg ?></td>
 	</tr>
 <?php } ?>
 <?php } ?>
@@ -540,131 +640,6 @@ ew.createDateTimePicker("fugddaftaradd", "x_Tgl_Daftar", {"ignoreReadonly":true,
 	<input type="hidden" data-table="ugddaftar" data-field="x_Petugas" name="x_Petugas" id="x_Petugas" value="<?php echo HtmlEncode($ugddaftar->Petugas->CurrentValue) ?>">
 	</span>
 	</script>
-<?php if ($ugddaftar->No_RM->Visible) { // No_RM ?>
-<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
-	<div id="r_No_RM" class="form-group row">
-		<label id="elh_ugddaftar_No_RM" for="x_No_RM" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_No_RM" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->No_RM->caption() ?><?php echo ($ugddaftar->No_RM->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
-		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->No_RM->cellAttributes() ?>>
-<script id="tpx_ugddaftar_No_RM" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_No_RM">
-<input type="text" data-table="ugddaftar" data-field="x_No_RM" name="x_No_RM" id="x_No_RM" size="15" maxlength="50" value="<?php echo $ugddaftar->No_RM->EditValue ?>"<?php echo $ugddaftar->No_RM->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->No_RM->CustomMsg ?></div></div>
-	</div>
-<?php } else { ?>
-	<tr id="r_No_RM">
-		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_No_RM"><script id="tpc_ugddaftar_No_RM" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->No_RM->caption() ?><?php echo ($ugddaftar->No_RM->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
-		<td<?php echo $ugddaftar->No_RM->cellAttributes() ?>>
-<script id="tpx_ugddaftar_No_RM" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_No_RM">
-<input type="text" data-table="ugddaftar" data-field="x_No_RM" name="x_No_RM" id="x_No_RM" size="15" maxlength="50" value="<?php echo $ugddaftar->No_RM->EditValue ?>"<?php echo $ugddaftar->No_RM->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->No_RM->CustomMsg ?></td>
-	</tr>
-<?php } ?>
-<?php } ?>
-<?php if ($ugddaftar->Nama_Pasien->Visible) { // Nama_Pasien ?>
-<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
-	<div id="r_Nama_Pasien" class="form-group row">
-		<label id="elh_ugddaftar_Nama_Pasien" for="x_Nama_Pasien" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_Nama_Pasien" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Nama_Pasien->caption() ?><?php echo ($ugddaftar->Nama_Pasien->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
-		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->Nama_Pasien->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Nama_Pasien" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Nama_Pasien">
-<input type="text" data-table="ugddaftar" data-field="x_Nama_Pasien" name="x_Nama_Pasien" id="x_Nama_Pasien" size="22" maxlength="50" value="<?php echo $ugddaftar->Nama_Pasien->EditValue ?>"<?php echo $ugddaftar->Nama_Pasien->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->Nama_Pasien->CustomMsg ?></div></div>
-	</div>
-<?php } else { ?>
-	<tr id="r_Nama_Pasien">
-		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_Nama_Pasien"><script id="tpc_ugddaftar_Nama_Pasien" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Nama_Pasien->caption() ?><?php echo ($ugddaftar->Nama_Pasien->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
-		<td<?php echo $ugddaftar->Nama_Pasien->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Nama_Pasien" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Nama_Pasien">
-<input type="text" data-table="ugddaftar" data-field="x_Nama_Pasien" name="x_Nama_Pasien" id="x_Nama_Pasien" size="22" maxlength="50" value="<?php echo $ugddaftar->Nama_Pasien->EditValue ?>"<?php echo $ugddaftar->Nama_Pasien->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->Nama_Pasien->CustomMsg ?></td>
-	</tr>
-<?php } ?>
-<?php } ?>
-<?php if ($ugddaftar->Tgl_Lahir->Visible) { // Tgl_Lahir ?>
-<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
-	<div id="r_Tgl_Lahir" class="form-group row">
-		<label id="elh_ugddaftar_Tgl_Lahir" for="x_Tgl_Lahir" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_Tgl_Lahir" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Tgl_Lahir->caption() ?><?php echo ($ugddaftar->Tgl_Lahir->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
-		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->Tgl_Lahir->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Tgl_Lahir" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Tgl_Lahir">
-<input type="text" data-table="ugddaftar" data-field="x_Tgl_Lahir" data-format="7" name="x_Tgl_Lahir" id="x_Tgl_Lahir" size="15" value="<?php echo $ugddaftar->Tgl_Lahir->EditValue ?>"<?php echo $ugddaftar->Tgl_Lahir->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->Tgl_Lahir->CustomMsg ?></div></div>
-	</div>
-<?php } else { ?>
-	<tr id="r_Tgl_Lahir">
-		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_Tgl_Lahir"><script id="tpc_ugddaftar_Tgl_Lahir" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Tgl_Lahir->caption() ?><?php echo ($ugddaftar->Tgl_Lahir->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
-		<td<?php echo $ugddaftar->Tgl_Lahir->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Tgl_Lahir" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Tgl_Lahir">
-<input type="text" data-table="ugddaftar" data-field="x_Tgl_Lahir" data-format="7" name="x_Tgl_Lahir" id="x_Tgl_Lahir" size="15" value="<?php echo $ugddaftar->Tgl_Lahir->EditValue ?>"<?php echo $ugddaftar->Tgl_Lahir->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->Tgl_Lahir->CustomMsg ?></td>
-	</tr>
-<?php } ?>
-<?php } ?>
-<?php if ($ugddaftar->Jenis_Kelamin->Visible) { // Jenis_Kelamin ?>
-<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
-	<div id="r_Jenis_Kelamin" class="form-group row">
-		<label id="elh_ugddaftar_Jenis_Kelamin" for="x_Jenis_Kelamin" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_Jenis_Kelamin" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Jenis_Kelamin->caption() ?><?php echo ($ugddaftar->Jenis_Kelamin->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
-		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->Jenis_Kelamin->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Jenis_Kelamin" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Jenis_Kelamin">
-<input type="text" data-table="ugddaftar" data-field="x_Jenis_Kelamin" name="x_Jenis_Kelamin" id="x_Jenis_Kelamin" size="15" maxlength="50" value="<?php echo $ugddaftar->Jenis_Kelamin->EditValue ?>"<?php echo $ugddaftar->Jenis_Kelamin->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->Jenis_Kelamin->CustomMsg ?></div></div>
-	</div>
-<?php } else { ?>
-	<tr id="r_Jenis_Kelamin">
-		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_Jenis_Kelamin"><script id="tpc_ugddaftar_Jenis_Kelamin" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Jenis_Kelamin->caption() ?><?php echo ($ugddaftar->Jenis_Kelamin->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
-		<td<?php echo $ugddaftar->Jenis_Kelamin->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Jenis_Kelamin" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Jenis_Kelamin">
-<input type="text" data-table="ugddaftar" data-field="x_Jenis_Kelamin" name="x_Jenis_Kelamin" id="x_Jenis_Kelamin" size="15" maxlength="50" value="<?php echo $ugddaftar->Jenis_Kelamin->EditValue ?>"<?php echo $ugddaftar->Jenis_Kelamin->editAttributes() ?>>
-</span>
-</script>
-<?php echo $ugddaftar->Jenis_Kelamin->CustomMsg ?></td>
-	</tr>
-<?php } ?>
-<?php } ?>
-<?php if ($ugddaftar->Alamat->Visible) { // Alamat ?>
-<?php if ($ugddaftar_add->IsMobileOrModal) { ?>
-	<div id="r_Alamat" class="form-group row">
-		<label id="elh_ugddaftar_Alamat" for="x_Alamat" class="<?php echo $ugddaftar_add->LeftColumnClass ?>"><script id="tpc_ugddaftar_Alamat" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Alamat->caption() ?><?php echo ($ugddaftar->Alamat->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></label>
-		<div class="<?php echo $ugddaftar_add->RightColumnClass ?>"><div<?php echo $ugddaftar->Alamat->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Alamat" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Alamat">
-<textarea data-table="ugddaftar" data-field="x_Alamat" name="x_Alamat" id="x_Alamat" cols="35" rows="2"<?php echo $ugddaftar->Alamat->editAttributes() ?>><?php echo $ugddaftar->Alamat->EditValue ?></textarea>
-</span>
-</script>
-<?php echo $ugddaftar->Alamat->CustomMsg ?></div></div>
-	</div>
-<?php } else { ?>
-	<tr id="r_Alamat">
-		<td class="<?php echo $ugddaftar_add->TableLeftColumnClass ?>"><span id="elh_ugddaftar_Alamat"><script id="tpc_ugddaftar_Alamat" class="ugddaftaradd" type="text/html"><span><?php echo $ugddaftar->Alamat->caption() ?><?php echo ($ugddaftar->Alamat->Required) ? $Language->phrase("FieldRequiredIndicator") : "" ?></span></script></span></td>
-		<td<?php echo $ugddaftar->Alamat->cellAttributes() ?>>
-<script id="tpx_ugddaftar_Alamat" class="ugddaftaradd" type="text/html">
-<span id="el_ugddaftar_Alamat">
-<textarea data-table="ugddaftar" data-field="x_Alamat" name="x_Alamat" id="x_Alamat" cols="35" rows="2"<?php echo $ugddaftar->Alamat->editAttributes() ?>><?php echo $ugddaftar->Alamat->EditValue ?></textarea>
-</span>
-</script>
-<?php echo $ugddaftar->Alamat->CustomMsg ?></td>
-	</tr>
-<?php } ?>
-<?php } ?>
 <?php if ($ugddaftar_add->IsMobileOrModal) { ?>
 </div><!-- /page* -->
 <?php } else { ?>
